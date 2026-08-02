@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
       <Link
         href="/blog"
-        className="inline-flex items-center gap-2 text-sm font-semibold text-sky-dark transition-colors hover:text-sky"
+        className="inline-flex items-center gap-2 py-3 text-sm font-semibold text-sky-dark transition-colors hover:text-sky"
       >
         <ArrowLeft size={16} aria-hidden="true" />
         Back to Blog

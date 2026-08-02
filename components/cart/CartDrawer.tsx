@@ -67,7 +67,7 @@ export function CartDrawer() {
                 type="button"
                 onClick={closeDrawer}
                 aria-label="Close cart"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-charcoal transition-colors hover:bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
+                className="flex h-11 w-11 items-center justify-center rounded-full text-charcoal transition-colors hover:bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
               >
                 <X size={20} />
               </button>

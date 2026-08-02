@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Geist, Geist_Mono, Fredoka } from "next/font/google";
 import "./globals.css";
 import {
@@ -9,11 +10,16 @@ import {
   SITE_URL,
 } from "@/lib/constants";
 import { CartProvider } from "@/components/cart/CartProvider";
-import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/shared/WhatsAppFloat";
 import { JsonLd } from "@/components/shared/JsonLd";
+
+// Code-split: hidden until opened, so it doesn't need to ship in the
+// initial bundle that blocks first paint on every page.
+const CartDrawer = dynamic(() =>
+  import("@/components/cart/CartDrawer").then((mod) => mod.CartDrawer)
+);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

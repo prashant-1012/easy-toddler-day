@@ -22,12 +22,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:py-24 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left"
-        >
+        <div className="hero-fade-up flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
           <span className="inline-flex items-center gap-2 rounded-full bg-sage/15 px-4 py-1.5 text-sm font-semibold text-sage-dark">
             <Sparkles size={16} aria-hidden="true" />
             Screen-Free Learning, Made Joyful
@@ -52,14 +47,9 @@ export function Hero() {
               See How It Works
             </Button>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto h-[340px] w-[280px] sm:h-[420px] sm:w-[360px] lg:h-[480px] lg:w-[440px]"
-        >
+        <div className="hero-fade-scale relative mx-auto h-[340px] w-[280px] sm:h-[420px] sm:w-[360px] lg:h-[480px] lg:w-[440px]">
           <Blob color="var(--color-coral)" className="left-[-12%] top-[-8%] h-56 w-56 sm:h-64 sm:w-64" />
           <Blob color="var(--color-sky)" className="bottom-[-12%] right-[-12%] h-64 w-64 sm:h-72 sm:w-72" />
 
@@ -92,14 +82,14 @@ export function Hero() {
 
           <motion.div
             animate={floatFast}
-            className="absolute -right-2 top-8 flex items-center gap-2 rounded-full bg-cloud px-4 py-2 shadow-soft sm:right-0"
+            className="absolute -right-2 -top-4 flex items-center gap-2 rounded-full bg-cloud px-3 py-1.5 shadow-soft sm:right-0 sm:top-8 sm:px-4 sm:py-2"
           >
             <Heart size={16} className="text-coral" fill="currentColor" aria-hidden="true" />
             <span className="text-sm font-semibold text-charcoal">
               Loved by Little Learners
             </span>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
 import { CartButton } from "@/components/cart/CartButton";
-import { MobileMenu } from "@/components/layout/MobileMenu";
+
+// Code-split: hidden until opened, only relevant below the lg breakpoint.
+const MobileMenu = dynamic(() =>
+  import("@/components/layout/MobileMenu").then((mod) => mod.MobileMenu)
+);
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

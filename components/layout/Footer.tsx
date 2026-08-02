@@ -14,7 +14,7 @@ export function Footer() {
           </p>
         </div>
 
-        <nav className="flex flex-col gap-2">
+        <nav className="flex flex-col">
           <span className="text-sm font-semibold uppercase tracking-wide text-warm-gray">
             Explore
           </span>
@@ -22,20 +22,20 @@ export function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-charcoal transition-colors hover:text-sky-dark"
+              className="flex items-center py-3 text-sm text-charcoal transition-colors hover:text-sky-dark"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <span className="text-sm font-semibold uppercase tracking-wide text-warm-gray">
             Contact
           </span>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="text-sm text-charcoal transition-colors hover:text-sky-dark"
+            className="flex items-center py-3 text-sm text-charcoal transition-colors hover:text-sky-dark"
           >
             {CONTACT_EMAIL}
           </a>

@@ -25,7 +25,7 @@ export function QuantityStepper({
         type="button"
         onClick={onDecrease}
         aria-label="Decrease quantity"
-        className="flex h-8 w-8 items-center justify-center rounded-full text-charcoal transition-colors hover:bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
+        className="flex h-11 w-11 items-center justify-center rounded-full text-charcoal transition-colors hover:bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
       >
         <Minus size={16} />
       </button>
@@ -36,7 +36,7 @@ export function QuantityStepper({
         type="button"
         onClick={onIncrease}
         aria-label="Increase quantity"
-        className="flex h-8 w-8 items-center justify-center rounded-full text-charcoal transition-colors hover:bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
+        className="flex h-11 w-11 items-center justify-center rounded-full text-charcoal transition-colors hover:bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
       >
         <Plus size={16} />
       </button>

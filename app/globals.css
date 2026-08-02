@@ -7,15 +7,15 @@
   --marigold: #ffb627;
   --marigold-dark: #f2a100;
   --sky: #2f9cd8;
-  --sky-dark: #1f7fb0;
+  --sky-dark: #1979aa;
   --coral: #f0475f;
   --coral-dark: #d62f49;
   --sage: #2fa854;
-  --sage-dark: #23893f;
+  --sage-dark: #0f752b;
   --cream: #fffbf2;
   --cloud: #ffffff;
   --charcoal: #2b2a28;
-  --warm-gray: #7a756d;
+  --warm-gray: #726d65;
   --warm-gray-light: #e8e3d9;
 
   --shadow-soft: 0 2px 8px rgba(43, 42, 40, 0.06), 0 8px 24px rgba(43, 42, 40, 0.06);
@@ -52,4 +52,49 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/*
+ * Pure-CSS entrance animations for above-the-fold Hero content.
+ * Framer Motion's `initial={{ opacity: 0 }}` pattern hides content until
+ * React hydrates and the JS animation runs, which pushed Hero LCP to ~2.7s
+ * in Lighthouse (the element isn't "painted" while opacity is 0, and
+ * hydration is far slower than a CSS animation start). CSS animations run
+ * on the compositor as soon as styles are parsed, independent of JS.
+ */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-fade-up {
+  animation: hero-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-fade-scale {
+  animation: hero-fade-scale 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up,
+  .hero-fade-scale {
+    animation: none;
+  }
 }

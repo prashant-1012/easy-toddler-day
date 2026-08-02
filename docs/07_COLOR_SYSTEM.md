@@ -16,15 +16,15 @@ and the palette below reflects those measured values.
 | Coral (Primary) | `#F0475F` | "easy" + heart icon in the logo | Brand color, primary CTAs |
 | Coral Dark | `#D62F49` | Darkened from Coral for contrast | Actual button fill (see contrast note below) |
 | Sky (Secondary) | `#2F9CD8` | "toddler" in the logo | Links, secondary badges, Learning Benefits accents |
-| Sky Dark | `#1F7FB0` | Darkened from Sky | Hover state for sky elements |
+| Sky Dark | `#1979AA` | Darkened from Sky | Section eyebrow labels, secondary button text/border |
 | Sage (Tertiary) | `#2FA854` | "day" in the logo | Montessori-inspired accent for "natural/educational" moments |
-| Sage Dark | `#23893F` | Darkened from Sage | Hover state for sage elements |
+| Sage Dark | `#0F752B` | Darkened from Sage | Text on `bg-sage/15` badges, hover state for sage elements |
 | Marigold (Support accent) | `#FFB627` | Small orange tagline dot in the logo | Minor highlight only — no longer the primary brand color |
 | Marigold Dark | `#F2A100` | Darkened from Marigold | Hover state for marigold elements |
 | Cream (Background) | `#FFFBF2` | Not from logo — chosen background | Primary page background — warm, not stark white |
 | Cloud White | `#FFFFFF` | — | Card surfaces on top of Cream |
 | Charcoal (Text) | `#2B2A28` | Close to the tagline text color in the logo | Primary text |
-| Warm Gray | `#7A756D` | — | Secondary text, muted labels, borders |
+| Warm Gray | `#726D65` | — | Secondary text, muted labels, borders |
 | Warm Gray Light | `#E8E3D9` | — | Dividers, subtle borders |
 
 The logo's three-word coloring (coral/sky/sage) **is** the brand
@@ -61,7 +61,7 @@ below.
 | White on Coral Dark `#D62F49` | ~4.8:1 | AA — safe for button text |
 | White on bright Coral `#F0475F` | ~3.65:1 | Fails AA for normal text — don't use white-on-bright-Coral for body-sized button labels |
 | Charcoal on bright Coral `#F0475F` | ~3.99:1 | Also short of AA 4.5:1 — this is why buttons use Coral Dark, not bright Coral, as the fill |
-| Warm Gray `#7A756D` on Cream | ~4.6:1 | AA — fine for secondary text ≥14px |
+| Warm Gray `#726D65` on Cream | ~4.97:1 | AA — safe for secondary text at any size |
 
 Bright Coral (`#F0475F`) is too light/saturated to reliably pass 4.5:1
 with either white or charcoal text — that's why `Button`'s primary
@@ -69,6 +69,38 @@ variant fills with **Coral Dark**, not bright Coral. Bright Coral
 stays reserved for text/icon/badge use where it's paired with a light
 background (tinted chips, the `Wordmark`), not as a solid fill behind
 body-sized text.
+
+**Correction (2026-08-03):** Warm Gray was originally `#7A756D`
+(estimated ~4.6:1 against Cream). A QA pass measured the actual
+*rendered* contrast — not just the theoretical hex math — and found
+it was really **4.43:1**, just under the 4.5:1 AA threshold, on the
+Hero's `text-lg` subheading (18px sits just under WCAG's 18.66px
+"large text" cutoff, so it needs the full 4.5:1, not the relaxed
+3:1). Darkened to `#726D65` (4.97:1, comfortable margin) — same warm
+neutral hue, six steps darker per channel. Moral: verify contrast
+against actual computed styles at the font sizes it's really used at,
+not just the token pair in isolation.
+
+**Correction 2 (2026-08-03):** the same QA pass ran Lighthouse's
+automated `color-contrast` audit (axe-core) across every page and
+found two more systematic failures, both from shared tokens used in
+many places at once:
+- **Sky Dark `#1F7FB0`** on white/cream backgrounds measured
+  **4.3–4.44:1**, just under 4.5:1. This is the color behind every
+  `SectionHeading` eyebrow label (FEATURED WORKBOOKS, LEARNING
+  BENEFITS, TESTIMONIALS, etc. — every section on the homepage) and
+  the `Button` secondary variant's border/text (See How It Works,
+  View All Workbooks, View All Posts). Darkened to **`#1979AA`**
+  (~4.82:1).
+- **Sage Dark `#23893F`** on the `bg-sage/15` badge background
+  (effective composited color `#E0EFDA`) measured **3.71:1**, a more
+  significant miss. This is the Hero's "Screen-Free Learning, Made
+  Joyful" pill and any other `bg-sage/15` + `text-sage-dark` badge
+  pairing. Darkened to **`#0F752B`** (~4.87:1).
+
+Both are one-line token changes in `globals.css` that fix every
+instance site-wide, since components reference the token, not a
+hardcoded hex.
 
 ## The `Wordmark` component
 
@@ -88,15 +120,15 @@ needed) rather than the `Wordmark` text component.
   --marigold: #ffb627;
   --marigold-dark: #f2a100;
   --sky: #2f9cd8;
-  --sky-dark: #1f7fb0;
+  --sky-dark: #1979aa;
   --coral: #f0475f;
   --coral-dark: #d62f49;
   --sage: #2fa854;
-  --sage-dark: #23893f;
+  --sage-dark: #0f752b;
   --cream: #fffbf2;
   --cloud: #ffffff;
   --charcoal: #2b2a28;
-  --warm-gray: #7a756d;
+  --warm-gray: #726d65;
   --warm-gray-light: #e8e3d9;
 }
 ```
