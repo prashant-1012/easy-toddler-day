@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { FeaturedWorkbooks } from "@/components/sections/FeaturedWorkbooks";
 import { LearningBenefits } from "@/components/sections/LearningBenefits";
 import { About } from "@/components/sections/About";
+import { Testimonials } from "@/components/sections/Testimonials";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <FeaturedWorkbooks />
       <LearningBenefits />
       <About />
+      <Testimonials />
     </>
   );
 }
