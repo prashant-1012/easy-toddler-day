@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { BlogCover } from "@/components/ui/BlogCover";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { blogPosts, getBlogPostBySlug } from "@/lib/data/blogPosts";
 import { formatDate } from "@/lib/utils/format-date";
 
@@ -40,6 +42,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          url: `${SITE_URL}/blog/${post.slug}`,
+          author: { "@type": "Organization", name: post.author },
+          publisher: { "@type": "Organization", name: SITE_NAME },
+        }}
+      />
       <Link
         href="/blog"
         className="inline-flex items-center gap-2 text-sm font-semibold text-sky-dark transition-colors hover:text-sky"

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Reveal } from "@/components/ui/Reveal";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { SITE_URL } from "@/lib/constants";
 import { products } from "@/lib/data/products";
 
 export const metadata: Metadata = {
@@ -13,6 +15,27 @@ export const metadata: Metadata = {
 export default function ShopPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      {products.map((product) => (
+        <JsonLd
+          key={product.id}
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.name,
+            description: product.shortDescription,
+            image: `${SITE_URL}${product.image}`,
+            offers: {
+              "@type": "Offer",
+              price: product.price,
+              priceCurrency: "INR",
+              availability: product.inStock
+                ? "https://schema.org/InStock"
+                : "https://schema.org/OutOfStock",
+            },
+          }}
+        />
+      ))}
+
       <SectionHeading
         eyebrow="Shop"
         title="All Workbooks"
