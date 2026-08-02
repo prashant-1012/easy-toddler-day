@@ -73,9 +73,39 @@ still applies:
 - Contact email/phone/address: **placeholder**, marked `TODO` in
   `lib/constants.ts`.
 
+- **Blog cover images** (2026-08-02): the owner added
+  `blog1.jpeg`, `blog2.webp`, `blog3.jpg` to `/public/images` for use
+  as blog post covers.
+  - `blog2.webp` (mom + daughter painting) → used for "How to Be Your
+    Toddler's First Learning Coach."
+  - `blog3.jpg` (girl writing with colored pencils) → used for
+    "Phonics at Home: A Gentle Starting Point."
+  - `blog1.jpeg` was **not** used — it shows a visible third-party
+    school logo ("Bachpan Play School") on the child's uniform, and
+    depicts a smart/audio pen device, which both risks implying an
+    affiliation we don't have and cuts against the site's screen-free
+    positioning. The "Screen-Free Summer Activities" post still uses
+    the generated `BlogCoverArt` fallback. Flag to the owner if a
+    replacement photo becomes available.
+  - `BlogPost.coverImage` is now optional — `BlogCover`
+    (`components/ui/BlogCover.tsx`) renders the real photo when
+    present, otherwise falls back to `BlogCoverArt`.
+- **Other existing images** (`summer-class-hero-image.png`,
+  `Parent-Coach-hero-Image.gif`, `phonics-for-hom-hero-1.gif`,
+  `MiniMakersClubSliderImg.png`) — per the owner, these are earmarked
+  as **potential hero images for other pages built later**, not for
+  the homepage Hero or blog covers (both already use different
+  assets, for the reasons above: baked-in unrelated campaign
+  badges/text, and in `MiniMakersClubSliderImg.png`'s case a visible
+  Lacoste logo). Revisit when those future pages are scoped —
+  cropping may still be needed depending on composition.
+
 ## Open items still to revisit with the user
 
 1. Confirm whether `/shop/[slug]` product detail pages are needed or
    if card-level info is sufficient for a 6-product catalog (default:
    not building these yet, per
    [04_SITE_MAP.md](./04_SITE_MAP.md)).
+2. A replacement photo for the "Screen-Free Summer Activities" blog
+   post cover, if the owner wants a real photo instead of the
+   generated cover treatment (see blog cover note above).

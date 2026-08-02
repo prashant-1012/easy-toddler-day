@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { BlogCoverArt, getBlogPostIcon } from "@/components/ui/BlogCoverArt";
+import { BlogCover } from "@/components/ui/BlogCover";
 import { blogPosts, getBlogPostBySlug } from "@/lib/data/blogPosts";
 import { formatDate } from "@/lib/utils/format-date";
 
@@ -48,10 +48,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         Back to Blog
       </Link>
 
-      <BlogCoverArt
-        icon={getBlogPostIcon(post.slug)}
-        accentColor={post.accentColor}
+      <BlogCover
+        post={post}
         className="mt-6 aspect-[16/9] w-full rounded-3xl"
+        sizes="(min-width: 1024px) 768px, 100vw"
+        priority
         iconSize={72}
       />
 

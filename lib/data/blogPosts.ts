@@ -1,11 +1,11 @@
 import type { BlogPost } from '@/lib/types/blog'
 
 // TODO: replace with real blog content before launch.
-// Covers use a generated icon+color treatment (see BlogCoverArt) rather than
-// a real photo — the only thematically-fitting stock images in /public/images
-// have unrelated campaign badges baked into the flat file and can't be
-// cleanly cropped out. Swap to real photography by adding a coverImage field
-// back once real assets exist.
+// Posts without a coverImage fall back to a generated icon+color treatment
+// (see BlogCoverArt) — used for the "screen-free summer" post since the only
+// candidate photo (blog1.jpeg) shows a third-party school logo and a smart
+// pen device, which cuts against our screen-free positioning. See
+// 20_CLAUDE_NOTES.md.
 export const blogPosts: BlogPost[] = [
   {
     id: 'b1',
@@ -35,6 +35,7 @@ export const blogPosts: BlogPost[] = [
       'Sitting beside your child for five focused minutes, narrating what they\'re doing, and letting them lead the pace builds more confidence than any worksheet alone.',
       'The workbook is a tool, not the lesson — you are the coach.',
     ],
+    coverImage: '/images/blog2.webp',
     accentColor: 'sky',
     date: '2026-04-02',
     author: 'Easy Toddler Day Team',
@@ -52,6 +53,7 @@ export const blogPosts: BlogPost[] = [
       'Start with the sounds in your child\'s own name. Familiarity builds confidence faster than alphabetical order ever will.',
       'A few minutes a day, spread across weeks, beats a single long session every time.',
     ],
+    coverImage: '/images/blog3.jpg',
     accentColor: 'sage',
     date: '2026-03-18',
     author: 'Easy Toddler Day Team',

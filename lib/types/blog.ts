@@ -6,6 +6,8 @@ export interface BlogPost {
   title: string
   excerpt: string
   content: string[]
+  /** Real photo, when available. Falls back to a generated icon+color cover (see BlogCoverArt) when omitted. */
+  coverImage?: string
   accentColor: BlogAccentColor
   date: string
   author: string

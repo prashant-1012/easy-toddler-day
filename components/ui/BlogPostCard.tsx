@@ -1,21 +1,23 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
-import { BlogCoverArt, getBlogPostIcon } from "@/components/ui/BlogCoverArt";
+import { BlogCover } from "@/components/ui/BlogCover";
 import { formatDate } from "@/lib/utils/format-date";
 import type { BlogPost } from "@/lib/types/blog";
 
 interface BlogPostCardProps {
   post: BlogPost;
+  priority?: boolean;
 }
 
-export function BlogPostCard({ post }: BlogPostCardProps) {
+export function BlogPostCard({ post, priority = false }: BlogPostCardProps) {
   return (
     <Link href={`/blog/${post.slug}`} className="group block h-full">
       <Card className="flex h-full flex-col overflow-hidden">
-        <BlogCoverArt
-          icon={getBlogPostIcon(post.slug)}
-          accentColor={post.accentColor}
-          className="aspect-[16/10] w-full rounded-t-2xl transition-transform duration-300 group-hover:scale-105"
+        <BlogCover
+          post={post}
+          className="aspect-[16/10] w-full rounded-t-2xl"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          priority={priority}
           iconSize={44}
         />
         <div className="flex flex-1 flex-col gap-2 p-5">
