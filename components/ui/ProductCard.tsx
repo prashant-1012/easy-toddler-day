@@ -12,9 +12,10 @@ import type { Product } from "@/lib/types/product";
 
 interface ProductCardProps {
   product: Product;
+  priority?: boolean;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, priority = false }: ProductCardProps) {
   const { addItem } = useCart();
   const [justAdded, setJustAdded] = useState(false);
 
@@ -31,12 +32,13 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <Card className="flex flex-col overflow-hidden">
+    <Card className="flex h-full flex-col overflow-hidden">
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-2xl bg-warm-gray-light">
         <Image
           src={product.image}
           alt={product.name}
           fill
+          priority={priority}
           className="object-cover"
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
         />

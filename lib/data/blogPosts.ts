@@ -1,11 +1,9 @@
 import type { BlogPost } from '@/lib/types/blog'
 
 // TODO: replace with real blog content before launch.
-// Posts without a coverImage fall back to a generated icon+color treatment
-// (see BlogCoverArt) — used for the "screen-free summer" post since the only
-// candidate photo (blog1.jpeg) shows a third-party school logo and a smart
-// pen device, which cuts against our screen-free positioning. See
-// 20_CLAUDE_NOTES.md.
+// blog1.jpeg shows a small third-party school logo on the child's uniform —
+// flagged to the owner, who chose to accept it and use the photo unedited
+// rather than the generated cover fallback. See 20_CLAUDE_NOTES.md.
 export const blogPosts: BlogPost[] = [
   {
     id: 'b1',
@@ -18,6 +16,7 @@ export const blogPosts: BlogPost[] = [
       'Toddlers thrive on short, repeatable activities: tracing, sorting, coloring, and simple counting games woven into the day rather than scheduled as "lessons."',
       'A workbook that lives on the coffee table — always within reach for a 10-minute burst of focus — does more for a screen-free routine than any elaborate activity box.',
     ],
+    coverImage: '/images/blog1.jpeg',
     accentColor: 'coral',
     date: '2026-05-12',
     author: 'Easy Toddler Day Team',

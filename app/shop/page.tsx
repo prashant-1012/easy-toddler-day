@@ -21,8 +21,8 @@ export default function ShopPage() {
       />
       <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product, index) => (
-          <Reveal key={product.id} delay={(index % 3) * 0.06}>
-            <ProductCard product={product} />
+          <Reveal key={product.id} delay={(index % 3) * 0.06} className="h-full">
+            <ProductCard product={product} priority={index < 3} />
           </Reveal>
         ))}
       </div>

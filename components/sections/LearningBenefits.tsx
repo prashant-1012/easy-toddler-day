@@ -57,7 +57,7 @@ export function LearningBenefits() {
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <Reveal key={benefit.title} delay={(index % 3) * 0.08}>
+            <Reveal key={benefit.title} delay={(index % 3) * 0.08} className="h-full">
               <Card className="flex h-full flex-col gap-4 p-6">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sage/15 text-sage-dark">
                   <benefit.icon size={22} aria-hidden="true" />

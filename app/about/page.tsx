@@ -70,7 +70,7 @@ export default function AboutPage() {
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {values.map((value, index) => (
-            <Reveal key={value.word} delay={index * 0.1}>
+            <Reveal key={value.word} delay={index * 0.1} className="h-full">
               <Card className="flex h-full flex-col items-center gap-4 p-8 text-center">
                 <span
                   className={`flex h-14 w-14 items-center justify-center rounded-full ${colorClasses[value.color]}`}

@@ -80,13 +80,18 @@ still applies:
     Toddler's First Learning Coach."
   - `blog3.jpg` (girl writing with colored pencils) → used for
     "Phonics at Home: A Gentle Starting Point."
-  - `blog1.jpeg` was **not** used — it shows a visible third-party
-    school logo ("Bachpan Play School") on the child's uniform, and
-    depicts a smart/audio pen device, which both risks implying an
-    affiliation we don't have and cuts against the site's screen-free
-    positioning. The "Screen-Free Summer Activities" post still uses
-    the generated `BlogCoverArt` fallback. Flag to the owner if a
-    replacement photo becomes available.
+  - `blog1.jpeg` shows a visible third-party school logo ("Bachpan
+    Play School") on the child's uniform, plus a smart/audio pen
+    device. Attempted to patch out the logo three ways (blur, and two
+    clone-stamp attempts using different donor patches of shirt
+    fabric) — all three left visible artifacts (a smudge, a wrong-color
+    patch, a ghosted double-exposure), so none were used. Flagged the
+    tradeoff to the owner, who **chose to accept the small visible
+    logo and use the photo unedited** rather than keep the generated
+    cover. Now used as-is for "Screen-Free Summer Activities for
+    Toddlers." Revisit only if a replacement/pre-edited photo shows up
+    later — the owner has already made the call, no need to re-raise
+    this.
   - `BlogPost.coverImage` is now optional — `BlogCover`
     (`components/ui/BlogCover.tsx`) renders the real photo when
     present, otherwise falls back to `BlogCoverArt`.
