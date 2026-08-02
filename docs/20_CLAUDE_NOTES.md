@@ -90,15 +90,40 @@ still applies:
   - `BlogPost.coverImage` is now optional — `BlogCover`
     (`components/ui/BlogCover.tsx`) renders the real photo when
     present, otherwise falls back to `BlogCoverArt`.
-- **Other existing images** (`summer-class-hero-image.png`,
-  `Parent-Coach-hero-Image.gif`, `phonics-for-hom-hero-1.gif`,
-  `MiniMakersClubSliderImg.png`) — per the owner, these are earmarked
-  as **potential hero images for other pages built later**, not for
-  the homepage Hero or blog covers (both already use different
-  assets, for the reasons above: baked-in unrelated campaign
-  badges/text, and in `MiniMakersClubSliderImg.png`'s case a visible
-  Lacoste logo). Revisit when those future pages are scoped —
-  cropping may still be needed depending on composition.
+- **About/Contact page hero images** (2026-08-02): the owner asked to
+  use the remaining unused images
+  (`summer-class-hero-image.png`, `Parent-Coach-hero-Image.gif`,
+  `phonics-for-hom-hero-1.gif`, `MiniMakersClubSliderImg.png`) as hero
+  banners on `/about` and `/contact`. Two of the four were salvageable
+  by cropping; two were not:
+  - `Parent-Coach-hero-Image.gif` → its "NEW LAUNCH" badge and
+    decorative squiggles all sit in the transparent margin *outside*
+    the photo's organic blob shape, so a rectangular crop through the
+    middle avoids them entirely. Cropped to
+    `public/images/about-hero-parent-coach.png` (800×620, from the
+    1080×1080 source at x:150 y:250), used in `AboutHero`
+    (`components/sections/AboutHero.tsx`).
+  - `summer-class-hero-image.png` is a 4-panel collage; the
+    "LIVE CLASSES"/"PERSONALIZED CLASSES" panel has its text baked
+    directly across the child's body and can't be cropped clean, but
+    the bottom-left panel (boy coloring) only had its
+    "LIMITED SPOTS AVAILABLE" banner and the "+898" avatar bubble
+    intruding from the edges. Cropped to
+    `public/images/contact-hero-boy-coloring.png` (440×320, from the
+    1080×1080 source at x:115 y:550), used in `ContactHero`
+    (`components/sections/ContactHero.tsx`).
+  - `phonics-for-hom-hero-1.gif` (shows a competing product box,
+    "Skill Boosters PHONICS EDITION") and `MiniMakersClubSliderImg.png`
+    (visible Lacoste logo on the child's shirt) were **not** used —
+    in both, the problem element runs through the main subject rather
+    than sitting in a marginal/croppable area, so there's no clean
+    rectangular crop that keeps the subject and loses the issue.
+    Still unused; revisit if the owner wants them for a future page
+    and can accept cropping down to a much tighter, subject-only
+    region (likely losing most of the frame), or has a replacement
+    photo.
+  - Original source files are untouched; the new files are cropped
+    derivatives, following the same pattern as the navbar logo crop.
 
 ## Open items still to revisit with the user
 
