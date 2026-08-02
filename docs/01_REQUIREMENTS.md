@@ -44,10 +44,10 @@ Preview, Contact, Footer — see
   phase — no MDX/CMS pipeline unless requested later.
 
 ### Contact
-- Contact section/page with a simple form (name, email, message) —
-  since there's no backend, this can either `mailto:` link or open a
-  WhatsApp chat with a pre-filled message (decide during Phase 5, flag
-  to user).
+- Contact section/page with a simple form (name, email, message).
+  Since there's no backend, submitting opens a WhatsApp chat with the
+  form content pre-filled as the message (same pattern as cart
+  checkout) rather than a `mailto:` link.
 
 ### Floating WhatsApp button
 - Persistent floating action button (bottom-right) that opens a direct
@@ -79,5 +79,7 @@ Preview, Contact, Footer — see
 |---|---|
 | WhatsApp checkout number | `+91 79720 52896` (confirmed) |
 | Product names/prices | Placeholder content, swappable later |
-| Brand colors | New palette proposed in [07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md) |
+| Brand colors | Approved — [07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md) |
+| Headline font | Approved — Fredoka, see [08_TYPOGRAPHY.md](./08_TYPOGRAPHY.md) |
+| Contact form | Approved — opens WhatsApp chat, see [17_WHATSAPP_CHECKOUT.md](./17_WHATSAPP_CHECKOUT.md) |
 | Contact email/phone/address | Placeholders, marked `TODO` |

@@ -8,19 +8,29 @@
 `--font-sans` / `--font-mono`. Geist Sans is a strong, clean, highly
 legible UI face — good for body text, nav, buttons, forms.
 
-## Proposal: a display face for headings
+## Display face for headings — **decided: Fredoka**
 
-Geist alone can read a little corporate/neutral for a toddler-brand
-hero. Recommend adding **one** rounded, friendly display font for
-headings only (H1/H2, hero headline, section titles), loaded via
-`next/font/google` alongside Geist — e.g. **Baloo 2** or **Fredoka**
-(both are free Google Fonts with a soft, rounded, toddler-friendly
-character without tipping into "children's book clip-art" territory).
+Geist alone read too corporate/neutral for a toddler-brand hero.
+**Fredoka** (Google Font) is used for all headings (H1/H2/H3, hero
+headline, section titles) — a soft, rounded, confident display face
+that adds toddler-brand personality without tipping into
+"children's-book clip-art" territory. Loaded via `next/font/google`
+alongside Geist, exposed as `--font-display` and mapped into Tailwind
+as `font-display`.
 
-This is a **design decision pending your approval** — flag before
-Phase 5. If declined, Geist Sans at heavier weights (`font-semibold`
-/`font-bold`) with generous letter-spacing on headlines is the
-fallback.
+```ts
+// app/layout.tsx
+import { Fredoka } from 'next/font/google'
+
+const fredoka = Fredoka({
+  variable: '--font-display',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+})
+```
+
+Body/UI text stays on Geist Sans (`font-sans`); only heading-level
+elements get `font-display`.
 
 ## Type scale
 

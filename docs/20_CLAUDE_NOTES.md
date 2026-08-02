@@ -36,19 +36,18 @@ still applies:
 - Product names/descriptions/prices for the 6 existing workbook
   images: **placeholder** content to be drafted, clearly marked for
   later replacement.
-- Brand color palette: **new palette proposed** (see
-  [07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md)) — pending explicit visual
-  approval before Phase 5 build starts using it broadly.
+- Brand color palette: **approved** (2026-08-02) — see
+  [07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md).
+- Display font: **approved — Fredoka**, alongside Geist Sans. See
+  [08_TYPOGRAPHY.md](./08_TYPOGRAPHY.md).
+- Contact form: **approved — opens WhatsApp chat** with the form
+  content, consistent with the cart checkout pattern (not `mailto:`).
 - Contact email/phone/address: **placeholder**, marked `TODO` in
   `lib/constants.ts`.
 
-## Open items to revisit with the user before/during Phase 5
+## Open items still to revisit with the user
 
-1. Approve or adjust the proposed color palette
-   ([07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md)).
-2. Decide on adding a display font for headings (Baloo 2 / Fredoka
-   proposal in [08_TYPOGRAPHY.md](./08_TYPOGRAPHY.md)) vs. Geist-only.
-3. Decide whether the Contact form submits via `mailto:` or opens a
-   WhatsApp chat (no backend exists to receive form POSTs).
-4. Confirm whether `/shop/[slug]` product detail pages are needed or
-   if card-level info is sufficient for a 6-product catalog.
+1. Confirm whether `/shop/[slug]` product detail pages are needed or
+   if card-level info is sufficient for a 6-product catalog (default:
+   not building these yet, per
+   [04_SITE_MAP.md](./04_SITE_MAP.md)).
