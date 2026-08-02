@@ -1,6 +1,11 @@
 import type { BlogPost } from '@/lib/types/blog'
 
-// TODO: replace with real blog content before launch
+// TODO: replace with real blog content before launch.
+// Covers use a generated icon+color treatment (see BlogCoverArt) rather than
+// a real photo — the only thematically-fitting stock images in /public/images
+// have unrelated campaign badges baked into the flat file and can't be
+// cleanly cropped out. Swap to real photography by adding a coverImage field
+// back once real assets exist.
 export const blogPosts: BlogPost[] = [
   {
     id: 'b1',
@@ -13,7 +18,7 @@ export const blogPosts: BlogPost[] = [
       'Toddlers thrive on short, repeatable activities: tracing, sorting, coloring, and simple counting games woven into the day rather than scheduled as "lessons."',
       'A workbook that lives on the coffee table — always within reach for a 10-minute burst of focus — does more for a screen-free routine than any elaborate activity box.',
     ],
-    coverImage: '/images/summer-class-hero-image.png',
+    accentColor: 'coral',
     date: '2026-05-12',
     author: 'Easy Toddler Day Team',
     readTimeMinutes: 4,
@@ -30,7 +35,7 @@ export const blogPosts: BlogPost[] = [
       'Sitting beside your child for five focused minutes, narrating what they\'re doing, and letting them lead the pace builds more confidence than any worksheet alone.',
       'The workbook is a tool, not the lesson — you are the coach.',
     ],
-    coverImage: '/images/Parent-Coach-hero-Image.gif',
+    accentColor: 'sky',
     date: '2026-04-02',
     author: 'Easy Toddler Day Team',
     readTimeMinutes: 5,
@@ -47,7 +52,7 @@ export const blogPosts: BlogPost[] = [
       'Start with the sounds in your child\'s own name. Familiarity builds confidence faster than alphabetical order ever will.',
       'A few minutes a day, spread across weeks, beats a single long session every time.',
     ],
-    coverImage: '/images/phonics-for-hom-hero-1.gif',
+    accentColor: 'sage',
     date: '2026-03-18',
     author: 'Easy Toddler Day Team',
     readTimeMinutes: 4,
