@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { CONTACT_EMAIL, CONTACT_PHONE, NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { Wordmark } from "@/components/ui/Wordmark";
 
 export function Footer() {
   return (
     <footer className="border-t border-warm-gray-light bg-cloud">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
         <div className="max-w-sm">
-          <span className="font-display text-xl font-semibold text-charcoal">
-            {SITE_NAME}
-          </span>
+          <Wordmark size="lg" tagline />
           <p className="mt-3 text-sm text-warm-gray">
             Premium, screen-free educational workbooks for toddlers — playful
             learning parents can trust.

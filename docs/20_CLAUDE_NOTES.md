@@ -36,8 +36,36 @@ still applies:
 - Product names/descriptions/prices for the 6 existing workbook
   images: **placeholder** content to be drafted, clearly marked for
   later replacement.
-- Brand color palette: **approved** (2026-08-02) — see
-  [07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md).
+- Brand color palette: initially approved (2026-08-02), then
+  **corrected the same day** after the owner pointed out the theme
+  didn't actually match the logo's real colors. The original palette
+  was invented (inspired by the four reference brands) without
+  sampling the logo file itself. Re-derived by extracting dominant
+  colors from `easytoddlerday-removebg.png` programmatically: Coral
+  `#F0475F` ("easy"/heart), Sky `#2F9CD8` ("toddler"), Sage `#2FA854`
+  ("day"). Marigold was demoted from primary to a minor accent since
+  it isn't actually a dominant logo color. See
+  [07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md) for the corrected
+  palette and the contrast math behind using Coral Dark (not bright
+  Coral) as the solid button fill.
+- **Navbar logo asset**: the source PNG
+  (`easytoddlerday-removebg.png`) is a 500×500 canvas where the actual
+  visible logo content is only ~156px tall (~31% of the canvas),
+  centered with heavy transparent padding above/below. Rendering it at
+  a normal navbar height left the visible logo tiny even though the
+  container looked reasonably sized — this was the root cause of the
+  "logo looks too small" feedback, not just a sizing tweak. Fixed by
+  cropping to the content's alpha bounding box and saving a new
+  derived asset, `public/images/easytoddlerday-logo-cropped.png`
+  (490×156, ~3.14:1) — the original file is untouched. The Navbar now
+  renders the cropped asset. If the logo file is ever replaced,
+  re-run the same crop (find the alpha-channel bounding box, trim to
+  it) rather than reusing the stale cropped file.
+- Wherever the brand name appears as **text** (not the logo image),
+  use `components/ui/Wordmark.tsx`, which colors "easy"/"toddler"/"day"
+  to match the logo exactly, rather than a plain single-color heading.
+  Wired into the Footer; consider it for the Hero too when that's
+  built.
 - Display font: **approved — Fredoka**, alongside Geist Sans. See
   [08_TYPOGRAPHY.md](./08_TYPOGRAPHY.md).
 - Contact form: **approved — opens WhatsApp chat** with the form

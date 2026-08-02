@@ -16,12 +16,13 @@ export function Navbar() {
       <header className="sticky top-0 z-30 border-b border-warm-gray-light/60 bg-cream/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2">
-            <span className="relative h-10 w-32">
+            <span className="relative h-11 w-[180px] sm:h-14 sm:w-[220px]">
               <Image
-                src="/images/easytoddlerday-removebg.png"
+                src="/images/easytoddlerday-logo-cropped.png"
                 alt={SITE_NAME}
                 fill
                 priority
+                sizes="220px"
                 className="object-contain object-left"
               />
             </span>
