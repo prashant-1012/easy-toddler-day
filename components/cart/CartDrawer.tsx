@@ -4,10 +4,14 @@ import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCart } from "@/components/cart/CartProvider";
+import { CartItemRow } from "@/components/cart/CartItemRow";
 import { Button } from "@/components/ui/Button";
+import { formatPrice } from "@/lib/utils/format-price";
+import { buildOrderMessage, openWhatsApp } from "@/lib/utils/whatsapp";
 
 export function CartDrawer() {
-  const { isDrawerOpen, closeDrawer, items } = useCart();
+  const { isDrawerOpen, closeDrawer, items, subtotal, updateQuantity, removeItem } =
+    useCart();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -27,6 +31,10 @@ export function CartDrawer() {
       document.body.style.overflow = "";
     };
   }, [isDrawerOpen, closeDrawer]);
+
+  function handleCheckout() {
+    openWhatsApp(buildOrderMessage(items));
+  }
 
   return (
     <AnimatePresence>
@@ -73,9 +81,36 @@ export function CartDrawer() {
                 </Button>
               </div>
             ) : (
-              <div className="flex-1 overflow-y-auto px-6 py-4">
-                {/* Line items land here in Phase 5 Step 4 (Cart Drawer + WhatsApp Checkout) */}
-              </div>
+              <>
+                <div className="flex-1 divide-y divide-warm-gray-light overflow-y-auto px-6">
+                  {items.map((item) => (
+                    <CartItemRow
+                      key={item.productId}
+                      item={item}
+                      onIncrease={() =>
+                        updateQuantity(item.productId, item.quantity + 1)
+                      }
+                      onDecrease={() =>
+                        updateQuantity(item.productId, item.quantity - 1)
+                      }
+                      onRemove={() => removeItem(item.productId)}
+                    />
+                  ))}
+                </div>
+
+                <div className="border-t border-warm-gray-light px-6 py-5">
+                  <div className="mb-4 flex items-center justify-between text-lg font-semibold text-charcoal">
+                    <span>Subtotal</span>
+                    <span>{formatPrice(subtotal)}</span>
+                  </div>
+                  <Button onClick={handleCheckout} size="lg" className="w-full">
+                    Checkout via WhatsApp
+                  </Button>
+                  <p className="mt-3 text-center text-xs text-warm-gray">
+                    We&apos;ll confirm your order details over WhatsApp.
+                  </p>
+                </div>
+              </>
             )}
           </motion.div>
         </>

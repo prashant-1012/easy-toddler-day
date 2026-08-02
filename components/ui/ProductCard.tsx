@@ -1,18 +1,35 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { useCart } from "@/components/cart/CartProvider";
 import { formatPrice } from "@/lib/utils/format-price";
 import type { Product } from "@/lib/types/product";
 
 interface ProductCardProps {
   product: Product;
-  onAddToCart?: (product: Product) => void;
 }
 
-export function ProductCard({ product, onAddToCart }: ProductCardProps) {
+export function ProductCard({ product }: ProductCardProps) {
+  const { addItem } = useCart();
+  const [justAdded, setJustAdded] = useState(false);
+
+  function handleAddToCart() {
+    addItem({
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      slug: product.slug,
+    });
+    setJustAdded(true);
+    window.setTimeout(() => setJustAdded(false), 1500);
+  }
+
   return (
     <Card className="flex flex-col overflow-hidden">
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-2xl bg-warm-gray-light">
@@ -48,9 +65,17 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
           <Button
             size="sm"
             disabled={!product.inStock}
-            onClick={() => onAddToCart?.(product)}
+            onClick={handleAddToCart}
           >
-            {product.inStock ? "Add to Cart" : "Out of Stock"}
+            {!product.inStock ? (
+              "Out of Stock"
+            ) : justAdded ? (
+              <>
+                <Check size={16} aria-hidden="true" /> Added
+              </>
+            ) : (
+              "Add to Cart"
+            )}
           </Button>
         </div>
       </div>

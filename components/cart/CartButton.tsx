@@ -1,6 +1,7 @@
 "use client";
 
 import { ShoppingBag } from "lucide-react";
+import { motion } from "framer-motion";
 import { useCart } from "@/components/cart/CartProvider";
 
 export function CartButton() {
@@ -15,9 +16,15 @@ export function CartButton() {
     >
       <ShoppingBag size={22} />
       {itemCount > 0 && (
-        <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-coral px-1 text-xs font-bold text-white">
+        <motion.span
+          key={itemCount}
+          initial={{ scale: 0.6 }}
+          animate={{ scale: [1.3, 1] }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-coral px-1 text-xs font-bold text-white"
+        >
           {itemCount}
-        </span>
+        </motion.span>
       )}
     </button>
   );
