@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Quote, Star } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
@@ -58,11 +59,23 @@ export function Testimonials() {
                 </p>
 
                 <div className="flex items-center gap-3 pt-2">
-                  <span
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${avatarColors[index % avatarColors.length]}`}
-                  >
-                    {getInitials(testimonial.name)}
-                  </span>
+                  {testimonial.avatar ? (
+                    <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                      <Image
+                        src={testimonial.avatar}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="40px"
+                      />
+                    </div>
+                  ) : (
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${avatarColors[index % avatarColors.length]}`}
+                    >
+                      {getInitials(testimonial.name)}
+                    </span>
+                  )}
                   <div>
                     <p className="text-sm font-semibold text-charcoal">
                       {testimonial.name}

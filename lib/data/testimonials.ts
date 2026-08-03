@@ -16,6 +16,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "The tracing workbook has become our favorite quiet-time activity. It's screen-free, my daughter loves it, and I can actually see her pencil grip improving.",
     rating: 5,
+    avatar: '/images/ananya.webp',
   },
   {
     id: 't2',
@@ -24,6 +25,7 @@ export const testimonials: Testimonial[] = [
     quote:
       'Finally a workbook that doesn\'t feel like a school worksheet. The pages are colorful without being overwhelming, and my son asks for it by name.',
     rating: 5,
+    avatar: '/images/kabir.webp',
   },
   {
     id: 't3',
@@ -32,6 +34,7 @@ export const testimonials: Testimonial[] = [
     quote:
       'Ordering was so easy — added everything to cart and sorted the rest over WhatsApp in minutes. The quality of the print and paper is genuinely premium.',
     rating: 5,
+    avatar: '/images/sneha.webp',
   },
   {
     id: 't4',
@@ -40,5 +43,6 @@ export const testimonials: Testimonial[] = [
     quote:
       'I wanted a thoughtful gift that wasn\'t another toy. These workbooks were the perfect middle ground — educational, but still fun for a toddler.',
     rating: 5,
+    avatar: '/images/farah.webp',
   },
 ]

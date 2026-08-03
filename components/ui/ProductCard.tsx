@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { QuantityStepper } from "@/components/ui/QuantityStepper";
 import { useCart } from "@/components/cart/CartProvider";
 import { formatPrice } from "@/lib/utils/format-price";
 import type { Product } from "@/lib/types/product";
@@ -16,8 +15,8 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, priority = false }: ProductCardProps) {
-  const { addItem } = useCart();
-  const [justAdded, setJustAdded] = useState(false);
+  const { items, addItem, updateQuantity, removeItem } = useCart();
+  const cartItem = items.find((item) => item.productId === product.id);
 
   function handleAddToCart() {
     addItem({
@@ -27,8 +26,19 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
       image: product.image,
       slug: product.slug,
     });
-    setJustAdded(true);
-    window.setTimeout(() => setJustAdded(false), 1500);
+  }
+
+  function handleIncrease() {
+    if (cartItem) updateQuantity(product.id, cartItem.quantity + 1);
+  }
+
+  function handleDecrease() {
+    if (!cartItem) return;
+    if (cartItem.quantity <= 1) {
+      removeItem(product.id);
+    } else {
+      updateQuantity(product.id, cartItem.quantity - 1);
+    }
   }
 
   return (
@@ -64,21 +74,21 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
               </span>
             )}
           </div>
-          <Button
-            size="sm"
-            disabled={!product.inStock}
-            onClick={handleAddToCart}
-          >
-            {!product.inStock ? (
-              "Out of Stock"
-            ) : justAdded ? (
-              <>
-                <Check size={16} aria-hidden="true" /> Added
-              </>
-            ) : (
-              "Add to Cart"
-            )}
-          </Button>
+          {!product.inStock ? (
+            <Button size="sm" disabled>
+              Out of Stock
+            </Button>
+          ) : cartItem ? (
+            <QuantityStepper
+              quantity={cartItem.quantity}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+            />
+          ) : (
+            <Button size="sm" onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
+          )}
         </div>
       </div>
     </Card>
