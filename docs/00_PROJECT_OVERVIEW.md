@@ -49,9 +49,14 @@ sale is closed in a chat with the business owner.
 Per the project owner, the following are placeholders to be swapped
 before launch:
 
-- **Product names, descriptions, and prices** for the 6 existing
-  workbook images (`book-1.jpg` … `book-6.png`) — drafted as realistic
-  placeholder content, clearly marked `TODO` in `lib/data/products.ts`.
+- **Prices** for the 5 real products in `public/products/` (Weekly
+  Learning Calendar + the 4-part Theme Workbook A–Z series) — names,
+  descriptions, and cover images are real; prices are still draft
+  values, marked `TODO` in `lib/data/products.ts`. Only the calendar
+  and Theme Workbook A–F are currently available to order; the
+  remaining three theme workbooks (G–M, N–T, U–Z) are marked
+  `comingSoon` and show a "Coming Soon" tag instead of Add to Cart —
+  see [15_DATA_STRUCTURE.md](./15_DATA_STRUCTURE.md).
 - **Contact email, phone (voice), and address** — placeholder values in
   `lib/constants.ts`, marked `TODO`.
 - **WhatsApp checkout number** — this one is **real**: `+91 79720 52896`.

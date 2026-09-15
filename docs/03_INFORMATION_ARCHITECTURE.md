@@ -36,7 +36,7 @@ narrative arc.
 |---|---|
 | `/` | Homepage — all sections above |
 | `/shop` | Full product catalog |
-| `/shop/[slug]` | Optional — single product detail (only if catalog grows beyond quick-glance cards; flag to user before building) |
+| `/shop/[slug]` | Single product detail page — gallery, full description, highlights, and related products |
 | `/blog` | Blog listing |
 | `/blog/[slug]` | Blog post detail |
 | `/about` | Full About page (deeper version of homepage section) |

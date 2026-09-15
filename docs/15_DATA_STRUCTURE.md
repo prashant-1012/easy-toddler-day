@@ -14,14 +14,27 @@ export interface Product {
   description: string
   price: number          // in INR, integer (paise-free — display formats via format-price.ts)
   compareAtPrice?: number
-  image: string           // path under /public/images
+  image: string           // primary cover image, path under /public/products
+  gallery?: string[]      // additional detail-page images (interior spreads, back cover, etc.)
+  highlights: string[]    // "what's inside" bullets shown on the detail page
   ageRange: string        // e.g. "2-4 years"
-  category: 'phonics' | 'motor-skills' | 'numbers' | 'general'
+  category: 'calendar' | 'theme-workbook'
   tags: string[]
   inStock: boolean
   featured: boolean
+  comingSoon: boolean     // true = "Coming Soon" tag, Add to Cart replaced by a WhatsApp notify-me CTA
 }
 ```
+
+## Placeholder image note
+
+Each product in `lib/data/products.ts` currently has exactly one cover
+image (from `public/products/`) and no `gallery` entries — the product
+detail page (`app/shop/[slug]/page.tsx`) is built to render additional
+`gallery` images as a thumbnail strip automatically the moment they're
+added, so dropping more photos (interior spreads, back cover) into
+`public/products/` and listing them in a product's `gallery` array is
+enough; no component changes needed.
 
 ## `lib/types/cart.ts`
 

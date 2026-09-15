@@ -9,10 +9,14 @@ no `+`/spaces — required format for `wa.me` links).
 ## Message format
 
 Built in `lib/utils/whatsapp.ts`, a pure function
-`buildOrderMessage(items: CartItem[]): string`:
+`buildOrderMessage(items: CartItem[], customer: { name: string; phone:
+string }): string`. Name and phone come from two required fields in the
+cart drawer, directly above the checkout button (added 2026-09-16 — see
+[21_GOOGLE_SHEETS_LEAD_INTEGRATION.md](./21_GOOGLE_SHEETS_LEAD_INTEGRATION.md)
+for why):
 
 ```
-Hi Easy Toddler Day! I'd like to order:
+Hi Easy Toddler Day! I'm Priya Sharma (98765 43210). I'd like to order:
 
 1. Alphabet Tracing Workbook x2 — ₹598
 2. Number Fun Workbook x1 — ₹299
@@ -24,6 +28,9 @@ Total Price: ₹897
 ```
 
 Rules:
+- Opening line includes the customer's name and phone, so the business
+  owner sees who they're talking to immediately in the WhatsApp chat —
+  not just implicitly from WhatsApp's own contact info.
 - One line per item: `<name> x<quantity> — ₹<line total>`.
 - `Total Items` = sum of quantities (not distinct product count).
 - `Total Price` = sum of `price * quantity` across items, formatted via

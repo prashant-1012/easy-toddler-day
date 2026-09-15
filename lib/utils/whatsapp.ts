@@ -2,7 +2,10 @@ import type { CartItem } from '@/lib/types/cart'
 import { formatPrice } from '@/lib/utils/format-price'
 import { WHATSAPP_NUMBER } from '@/lib/constants'
 
-export function buildOrderMessage(items: CartItem[]): string {
+export function buildOrderMessage(
+  items: CartItem[],
+  customer: { name: string; phone: string }
+): string {
   const lines = items.map(
     (item, index) =>
       `${index + 1}. ${item.name} x${item.quantity} — ${formatPrice(item.price * item.quantity)}`
@@ -11,7 +14,7 @@ export function buildOrderMessage(items: CartItem[]): string {
   const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
   return [
-    "Hi Easy Toddler Day! I'd like to order:",
+    `Hi Easy Toddler Day! I'm ${customer.name} (${customer.phone}). I'd like to order:`,
     '',
     ...lines,
     '',
@@ -24,6 +27,10 @@ export function buildOrderMessage(items: CartItem[]): string {
 
 export function buildInquiryMessage(): string {
   return 'Hi! I have a question about Easy Toddler Day workbooks.'
+}
+
+export function buildComingSoonInterestMessage(productName: string): string {
+  return `Hi! I'm interested in the "${productName}" — please let me know when it's available to order.`
 }
 
 export function buildContactMessage(data: { name: string; email: string; message: string }): string {

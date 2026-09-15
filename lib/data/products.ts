@@ -1,96 +1,121 @@
 import type { Product } from '@/lib/types/product'
 
-// TODO: replace all names, descriptions, and prices with real product info before launch
+// TODO: replace prices with real, final pricing before launch — names,
+// descriptions, and images below are real (sourced from public/products).
 export const products: Product[] = [
   {
     id: 'p1',
-    slug: 'alphabet-tracing-workbook',
-    name: 'Alphabet Tracing Workbook',
-    shortDescription: 'Big, friendly letters for little hands to trace and learn.',
+    slug: 'weekly-learning-calendar',
+    name: 'Weekly Learning Calendar',
+    shortDescription:
+      'A 26-week, undated calendar that turns everyday routines into playful learning moments.',
     description:
-      'A guided tracing workbook that introduces uppercase and lowercase letters through large, toddler-friendly strokes. Designed to build pencil control and letter recognition before formal writing begins.',
-    price: 299,
-    image: '/images/book-1.jpg',
+      "Twenty-six weeks of screen-free structure for your toddler's day. Each week introduces a gentle mix of letters, numbers, shapes, and colors through short, repeatable activities — the kind that fit into nap-time gaps and after-dinner wind-downs, not a rigid classroom schedule. Because it's undated, you can start on any week of the year and move at your child's pace, not a calendar's.",
+    price: 349,
+    image: '/products/weekly-calendar.png',
+    highlights: [
+      '26 weeks of themed daily activities',
+      'Builds letter, number & shape recognition through routine',
+      'Undated pages — start on any week of the year',
+      'Thick, coloring-friendly paper stock',
+    ],
     ageRange: '2-4 years',
-    category: 'phonics',
-    tags: ['alphabet', 'tracing', 'pre-writing'],
+    category: 'calendar',
+    tags: ['calendar', 'routine', 'planner'],
     inStock: true,
     featured: true,
+    comingSoon: false,
   },
   {
     id: 'p2',
-    slug: 'number-fun-workbook',
-    name: 'Number Fun Workbook',
-    shortDescription: 'Counting, tracing, and number recognition made playful.',
+    slug: 'theme-workbook-a-f',
+    name: 'Theme Workbook: A–F',
+    shortDescription:
+      'Six playful letter themes from A to F — tracing, matching, and first vocabulary.',
     description:
-      'From counting dots to tracing numerals 1–20, this workbook turns early math into a game with colorful, uncluttered pages toddlers actually want to finish.',
-    price: 299,
-    image: '/images/book-2.jpg',
-    ageRange: '3-5 years',
-    category: 'numbers',
-    tags: ['numbers', 'counting', 'math'],
+      'The first volume in our themed workbook series, covering letters A through F. Each letter gets its own themed spread — big trace-and-write practice for uppercase and lowercase forms, paired with bright, simple pictures that build first vocabulary. Pages are big, uncluttered, and sized for little hands still learning pencil control.',
+    price: 249,
+    image: '/products/theme-workbook-a-f.png',
+    highlights: [
+      'Covers letters A through F, one theme per letter',
+      'Trace-and-write practice for upper & lowercase forms',
+      'Vocabulary building through themed pictures',
+      'Bright, clutter-free pages sized for little hands',
+    ],
+    ageRange: '2.5+ years',
+    category: 'theme-workbook',
+    tags: ['alphabet', 'tracing', 'vocabulary'],
     inStock: true,
     featured: true,
+    comingSoon: false,
   },
   {
     id: 'p3',
-    slug: 'pre-writing-strokes-workbook',
-    name: 'Pre-Writing Strokes Workbook',
-    shortDescription: 'Lines, curves, and zigzags that build the muscles behind handwriting.',
+    slug: 'theme-workbook-g-m',
+    name: 'Theme Workbook: G–M',
+    shortDescription:
+      'Letters G through M continue the themed tracing and vocabulary series.',
     description:
-      'Before letters, little hands need control. This workbook builds fine motor strength and pencil grip through simple, satisfying stroke patterns.',
+      'The next volume in our themed workbook series, picking up where A–F leaves off with letters G through M. Same format your toddler already knows — one themed spread per letter, big trace-and-write practice, and bright vocabulary pictures — so the learning stays consistent as the letters get new.',
     price: 249,
-    image: '/images/book-3.jpg',
-    ageRange: '2-4 years',
-    category: 'motor-skills',
-    tags: ['pre-writing', 'fine motor'],
-    inStock: true,
+    image: '/products/theme-workbook-g-m.png',
+    highlights: [
+      'Covers letters G through M, one theme per letter',
+      'Trace-and-write practice for upper & lowercase forms',
+      'Vocabulary building through themed pictures',
+      'Same trusted format as Theme Workbook A–F',
+    ],
+    ageRange: '2.5+ years',
+    category: 'theme-workbook',
+    tags: ['alphabet', 'tracing', 'vocabulary'],
+    inStock: false,
     featured: false,
+    comingSoon: true,
   },
   {
     id: 'p4',
-    slug: 'shapes-and-colors-workbook',
-    name: 'Shapes & Colors Workbook',
-    shortDescription: 'The first workbook for the youngest learners in the house.',
+    slug: 'theme-workbook-n-t',
+    name: 'Theme Workbook: N–T',
+    shortDescription:
+      'Letters N through T keep the themed tracing series going.',
     description:
-      'Simple shape and color recognition activities designed for toddlers just starting their learning journey, with plenty of room to color and explore.',
+      "The third volume in our themed workbook series, covering letters N through T. It keeps the same toddler-tested format — one themed spread per letter, guided tracing, and vocabulary-building pictures — so the series stays familiar all the way from A to Z.",
     price: 249,
-    image: '/images/book-4.jpg',
-    ageRange: '1.5-3 years',
-    category: 'general',
-    tags: ['shapes', 'colors', 'toddler'],
-    inStock: true,
+    image: '/products/theme-workbook-n-t.png',
+    highlights: [
+      'Covers letters N through T, one theme per letter',
+      'Trace-and-write practice for upper & lowercase forms',
+      'Vocabulary building through themed pictures',
+      'Same trusted format as Theme Workbook A–F',
+    ],
+    ageRange: '2.5+ years',
+    category: 'theme-workbook',
+    tags: ['alphabet', 'tracing', 'vocabulary'],
+    inStock: false,
     featured: false,
+    comingSoon: true,
   },
   {
     id: 'p5',
-    slug: 'phonics-starter-workbook',
-    name: 'Phonics Starter Workbook',
-    shortDescription: 'Letter sounds and simple blends to kickstart early reading.',
+    slug: 'theme-workbook-u-z',
+    name: 'Theme Workbook: U–Z',
+    shortDescription: 'Letters U through Z complete the alphabet series.',
     description:
-      'A gentle introduction to phonics — letter sounds, simple blends, and picture-matching activities that lay the foundation for reading.',
-    price: 349,
-    image: '/images/book-5.jpeg',
-    ageRange: '3-5 years',
-    category: 'phonics',
-    tags: ['phonics', 'reading', 'sounds'],
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: 'p6',
-    slug: 'fine-motor-skills-activity-book',
-    name: 'Fine Motor Skills Activity Book',
-    shortDescription: 'Cutting, lacing-style tracing, and dexterity activities in one book.',
-    description:
-      'A collection of hands-on activities — mazes, dot-to-dots, cutting practice guides — built to strengthen fine motor skills through play.',
-    price: 299,
-    image: '/images/book-6.png',
-    ageRange: '2-4 years',
-    category: 'motor-skills',
-    tags: ['fine motor', 'activities'],
-    inStock: true,
-    featured: true,
+      'The final volume in our themed workbook series, taking letters U through Z all the way to the end of the alphabet. Finishes the same format used across the whole series — themed tracing spreads and vocabulary-building pictures — so toddlers who started at A–F can complete the full set.',
+    price: 249,
+    image: '/products/theme-workbook-u-z.png',
+    highlights: [
+      'Covers letters U through Z, one theme per letter',
+      'Trace-and-write practice for upper & lowercase forms',
+      'Vocabulary building through themed pictures',
+      'Completes the full A–Z workbook series',
+    ],
+    ageRange: '2.5+ years',
+    category: 'theme-workbook',
+    tags: ['alphabet', 'tracing', 'vocabulary'],
+    inStock: false,
+    featured: false,
+    comingSoon: true,
   },
 ]
 
@@ -100,4 +125,8 @@ export function getFeaturedProducts(): Product[] {
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug)
+}
+
+export function getRelatedProducts(slug: string, limit = 3): Product[] {
+  return products.filter((product) => product.slug !== slug).slice(0, limit)
 }

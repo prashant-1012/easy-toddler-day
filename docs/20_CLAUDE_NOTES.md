@@ -130,12 +130,36 @@ still applies:
   - Original source files are untouched; the new files are cropped
     derivatives, following the same pattern as the navbar logo crop.
 
+## Product catalog replaced with real products (2026-09-15)
+
+The 6 placeholder workbooks (`book-1.jpg` … `book-6.png`) were removed
+entirely and replaced with the 5 real products the owner added to
+`public/products/`: `weekly-calendar.png` and 4 theme workbooks split
+by letter range (`theme-workbook-a-f.png`, `-g-m.png`, `-n-t.png`,
+`-u-z.png`). Per the owner, only the calendar and Theme Workbook A–F
+are currently available; the other three theme workbooks are
+`comingSoon: true` (see [15_DATA_STRUCTURE.md](./15_DATA_STRUCTURE.md))
+and show a "Coming Soon" tag with a WhatsApp notify-me CTA instead of
+Add to Cart. All 5 cover images are 1103×1426px (~0.7735 ratio, close
+to US Letter) — `ProductCard` and `ProductGallery` both use an exact
+`aspect-[1103/1426]` container so `object-cover` never crops them.
+
+`/shop/[slug]` product detail pages were also built at the same time
+(previously deferred, see the old site-map note this replaces) —
+gallery, price/CTA panel, highlights, full description, and related
+products, statically generated via `generateStaticParams`. Prices are
+still placeholder/TODO.
+
 ## Open items still to revisit with the user
 
-1. Confirm whether `/shop/[slug]` product detail pages are needed or
-   if card-level info is sufficient for a 6-product catalog (default:
-   not building these yet, per
-   [04_SITE_MAP.md](./04_SITE_MAP.md)).
-2. A replacement photo for the "Screen-Free Summer Activities" blog
+1. A replacement photo for the "Screen-Free Summer Activities" blog
    post cover, if the owner wants a real photo instead of the
    generated cover treatment (see blog cover note above).
+2. Hero and About sections still float 4 of the old placeholder book
+   covers (`book-1.jpg`, `book-2.jpg`, `book-4.jpg`) as decorative
+   images with alt text referencing the old fictional product names
+   (e.g. "Alphabet Tracing Workbook cover") — these are standalone
+   decorative assets, not wired to `lib/data/products.ts`, so they
+   were left untouched during the product catalog replacement above.
+   Flag to the owner: swap them for real product covers, or leave as
+   generic decoration?

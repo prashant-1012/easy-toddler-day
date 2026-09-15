@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -17,6 +18,7 @@ interface ProductCardProps {
 export function ProductCard({ product, priority = false }: ProductCardProps) {
   const { items, addItem, updateQuantity, removeItem } = useCart();
   const cartItem = items.find((item) => item.productId === product.id);
+  const href = `/shop/${product.slug}`;
 
   function handleAddToCart() {
     addItem({
@@ -43,23 +45,33 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
 
   return (
     <Card className="flex h-full flex-col overflow-hidden">
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-2xl bg-warm-gray-light">
+      <Link
+        href={href}
+        className="group relative block aspect-[1103/1426] w-full overflow-hidden rounded-t-2xl bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2"
+      >
         <Image
           src={product.image}
           alt={product.name}
           fill
           priority={priority}
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
         />
-        <Badge variant="sky" className="absolute left-3 top-3">
-          {product.ageRange}
-        </Badge>
-      </div>
+        {product.comingSoon && (
+          <Badge variant="marigold" className="absolute right-3 top-3 shadow-soft">
+            Coming Soon
+          </Badge>
+        )}
+      </Link>
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <h3 className="font-display text-xl font-semibold text-charcoal">
-          {product.name}
-        </h3>
+        <Link
+          href={href}
+          className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
+        >
+          <h3 className="font-display text-xl font-semibold text-charcoal transition-colors hover:text-coral-dark">
+            {product.name}
+          </h3>
+        </Link>
         <p className="flex-1 text-sm text-warm-gray">
           {product.shortDescription}
         </p>
@@ -74,7 +86,11 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
               </span>
             )}
           </div>
-          {!product.inStock ? (
+          {product.comingSoon ? (
+            <Button size="sm" variant="ghost" disabled>
+              Coming Soon
+            </Button>
+          ) : !product.inStock ? (
             <Button size="sm" disabled>
               Out of Stock
             </Button>

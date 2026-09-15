@@ -72,8 +72,8 @@ export function Hero() {
             className="absolute -bottom-2 -left-2 w-24 rotate-[-8deg] overflow-hidden rounded-xl shadow-lift sm:w-32"
           >
             <Image
-              src="/images/book-1.jpg"
-              alt="Alphabet Tracing Workbook cover"
+              src="/products/theme-workbook-a-f.png"
+              alt="Theme Workbook: A–F cover"
               width={200}
               height={260}
               className="h-auto w-full object-cover"

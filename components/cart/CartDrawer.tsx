@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCart } from "@/components/cart/CartProvider";
@@ -8,11 +8,17 @@ import { CartItemRow } from "@/components/cart/CartItemRow";
 import { Button } from "@/components/ui/Button";
 import { formatPrice } from "@/lib/utils/format-price";
 import { buildOrderMessage, openWhatsApp } from "@/lib/utils/whatsapp";
+import { submitOrderLead } from "@/lib/utils/leads";
+
+const inputClasses =
+  "w-full rounded-xl border border-warm-gray-light bg-cloud px-4 py-3 text-base text-charcoal placeholder:text-warm-gray focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky";
 
 export function CartDrawer() {
   const { isDrawerOpen, closeDrawer, items, subtotal, updateQuantity, removeItem } =
     useCart();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   useEffect(() => {
     if (!isDrawerOpen) return;
@@ -32,8 +38,12 @@ export function CartDrawer() {
     };
   }, [isDrawerOpen, closeDrawer]);
 
-  function handleCheckout() {
-    openWhatsApp(buildOrderMessage(items));
+  function handleCheckout(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    // Open WhatsApp synchronously, first — this is the real checkout path
+    // and must never be delayed by (or fail because of) the lead log below.
+    openWhatsApp(buildOrderMessage(items, { name, phone }));
+    submitOrderLead({ name, phone, items, subtotal });
   }
 
   return (
@@ -98,18 +108,61 @@ export function CartDrawer() {
                   ))}
                 </div>
 
-                <div className="border-t border-warm-gray-light px-6 py-5">
+                <form
+                  onSubmit={handleCheckout}
+                  className="border-t border-warm-gray-light px-6 py-5"
+                >
                   <div className="mb-4 flex items-center justify-between text-lg font-semibold text-charcoal">
                     <span>Subtotal</span>
                     <span>{formatPrice(subtotal)}</span>
                   </div>
-                  <Button onClick={handleCheckout} size="lg" className="w-full">
+
+                  <div className="mb-4 flex flex-col gap-3">
+                    <div className="flex flex-col gap-2">
+                      <label
+                        htmlFor="cart-checkout-name"
+                        className="text-sm font-semibold text-charcoal"
+                      >
+                        Name
+                      </label>
+                      <input
+                        id="cart-checkout-name"
+                        name="name"
+                        type="text"
+                        required
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                        placeholder="Your name"
+                        className={inputClasses}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <label
+                        htmlFor="cart-checkout-phone"
+                        className="text-sm font-semibold text-charcoal"
+                      >
+                        Phone
+                      </label>
+                      <input
+                        id="cart-checkout-phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        value={phone}
+                        onChange={(event) => setPhone(event.target.value)}
+                        placeholder="Your WhatsApp number"
+                        className={inputClasses}
+                      />
+                    </div>
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full">
                     Checkout via WhatsApp
                   </Button>
                   <p className="mt-3 text-center text-xs text-warm-gray">
                     We&apos;ll confirm your order details over WhatsApp.
                   </p>
-                </div>
+                </form>
               </>
             )}
           </motion.div>

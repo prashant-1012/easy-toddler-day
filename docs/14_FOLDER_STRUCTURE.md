@@ -9,7 +9,9 @@ easy-toddler-day/
 │   ├── sitemap.ts
 │   ├── robots.ts
 │   ├── shop/
-│   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   └── [slug]/
+│   │       └── page.tsx
 │   ├── blog/
 │   │   ├── page.tsx
 │   │   └── [slug]/
@@ -32,6 +34,9 @@ easy-toddler-day/
 │   │   ├── Testimonials.tsx
 │   │   ├── BlogPreview.tsx
 │   │   └── Contact.tsx
+│   ├── shop/
+│   │   ├── ProductGallery.tsx
+│   │   └── ProductPurchasePanel.tsx
 │   ├── cart/
 │   │   ├── CartProvider.tsx
 │   │   ├── CartButton.tsx
@@ -65,7 +70,8 @@ easy-toddler-day/
 │   └── constants.ts             (site name, nav links, WhatsApp number, placeholder contact info)
 │
 ├── public/
-│   └── images/                  (existing assets — unchanged)
+│   ├── images/                  (hero, blog, and decorative assets)
+│   └── products/                (real product cover images, referenced from lib/data/products.ts)
 │
 └── docs/                        (this documentation)
 ```

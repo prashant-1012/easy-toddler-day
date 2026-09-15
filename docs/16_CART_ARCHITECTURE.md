@@ -47,7 +47,14 @@
 - Empty state: friendly illustration/message + "Browse Workbooks" CTA
   linking to `/shop`, not just a blank panel.
 - Checkout CTA at the bottom builds the WhatsApp message — see
-  [17_WHATSAPP_CHECKOUT.md](./17_WHATSAPP_CHECKOUT.md).
+  [17_WHATSAPP_CHECKOUT.md](./17_WHATSAPP_CHECKOUT.md). The footer is a
+  `<form>`: required Name + Phone fields sit above the button (native
+  `required` validation, no custom JS validation needed) and its `onSubmit`
+  both opens WhatsApp and fires `submitOrderLead()` to log the lead to a
+  Google Sheet — see
+  [21_GOOGLE_SHEETS_LEAD_INTEGRATION.md](./21_GOOGLE_SHEETS_LEAD_INTEGRATION.md).
+  The Sheet log is fire-and-forget and must never block or fail the
+  WhatsApp handoff.
 
 ## Explicitly not built
 

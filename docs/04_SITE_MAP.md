@@ -34,7 +34,13 @@ app/
   logic), but note this version renamed that file to `proxy.ts` if it's
   ever needed.
 
-## Deferred / not built in this phase
+## Route additions since the initial build
 
-- `/shop/[slug]` product detail pages — only add if the catalog grows
-  past what a card grid can communicate. Revisit after Phase 5 review.
+- `/shop/[slug]` product detail pages — built (2026-09-15), per the
+  project owner's request once the real product catalog (5 products
+  under `public/products/`) replaced the 6 placeholder workbooks.
+  Statically generated via `generateStaticParams` in
+  `app/shop/[slug]/page.tsx`, mirroring the existing `/blog/[slug]`
+  pattern. See [15_DATA_STRUCTURE.md](./15_DATA_STRUCTURE.md) for the
+  updated `Product` shape and [09_COMPONENT_LIBRARY.md](./09_COMPONENT_LIBRARY.md)
+  for the new `shop/` components.

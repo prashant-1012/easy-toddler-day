@@ -30,6 +30,13 @@ paths.
 `Testimonials`, `BlogPreview`, `Contact` — each self-contained,
 imported in order into `app/page.tsx`.
 
+## `shop/` — product detail page, business logic (cart)
+
+| Component | Purpose |
+|---|---|
+| `ProductGallery` | Client component for the detail page's image gallery — main image with a thumbnail strip, shown only when a product has more than one image. |
+| `ProductPurchasePanel` | Client component with price, badges, Add to Cart/quantity stepper for available products, or a "Notify Me on WhatsApp" CTA for `comingSoon` products, plus the highlights list. |
+
 ## `cart/`
 
 | Component | Purpose |

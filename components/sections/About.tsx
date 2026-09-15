@@ -21,8 +21,8 @@ export function About() {
             />
             <div className="absolute left-0 top-6 w-40 rotate-[-6deg] overflow-hidden rounded-2xl shadow-lift sm:w-48">
               <Image
-                src="/images/book-2.jpg"
-                alt="Number Fun Workbook cover"
+                src="/products/weekly-calendar.png"
+                alt="Weekly Learning Calendar cover"
                 width={240}
                 height={310}
                 className="h-auto w-full object-cover"
@@ -30,8 +30,8 @@ export function About() {
             </div>
             <div className="absolute bottom-0 right-0 w-40 rotate-[7deg] overflow-hidden rounded-2xl shadow-lift sm:w-48">
               <Image
-                src="/images/book-4.jpg"
-                alt="Shapes & Colors Workbook cover"
+                src="/products/theme-workbook-a-f.png"
+                alt="Theme Workbook: A–F cover"
                 width={240}
                 height={310}
                 className="h-auto w-full object-cover"
