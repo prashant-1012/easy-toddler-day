@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, CONTACT_PHONE, NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { Heart } from "lucide-react";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  DEVELOPER_NAME,
+  DEVELOPER_URL,
+  NAV_LINKS,
+  SITE_NAME,
+} from "@/lib/constants";
 import { Wordmark } from "@/components/ui/Wordmark";
 
 export function Footer() {
@@ -43,8 +51,23 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-warm-gray-light px-4 py-5 text-center text-xs text-warm-gray sm:px-6 lg:px-10 xl:px-12">
-        © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+      <div className="flex flex-col items-center gap-2 border-t border-warm-gray-light px-4 py-5 text-center text-xs text-warm-gray sm:px-6 lg:px-10 xl:px-12">
+        <span>
+          © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          Made with
+          <Heart size={12} className="text-coral" fill="currentColor" aria-hidden="true" />
+          by{" "}
+          <a
+            href={DEVELOPER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-sky-dark transition-colors hover:text-sky"
+          >
+            {DEVELOPER_NAME}
+          </a>
+        </span>
       </div>
     </footer>
   );

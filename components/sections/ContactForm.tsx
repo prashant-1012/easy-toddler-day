@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { buildContactMessage, openWhatsApp } from "@/lib/utils/whatsapp";
 
 const inputClasses =
-  "w-full rounded-xl border border-warm-gray-light bg-cloud px-4 py-3 text-base text-charcoal placeholder:text-warm-gray focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky";
+  "w-full rounded-xl border border-warm-gray-light bg-cloud px-4 py-3 text-base text-charcoal placeholder:text-warm-gray/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky";
 
 export function ContactForm() {
   const [name, setName] = useState("");

@@ -59,7 +59,11 @@ Google's own OAuth consent screens.
      sheet.appendRow([
        new Date(),
        data.name || '',
-       data.phone || '',
+       // Leading apostrophe forces Sheets to treat this as literal text.
+       // Without it, a value starting with '+' (phone is sent as "+91
+       // XXXXXXXXXX") gets parsed as the start of a formula and shows a
+       // parse error in the cell instead of the phone number.
+       data.phone ? "'" + data.phone : '',
        data.orderSummary || '',
        data.subtotal || '',
        '', // Status — filled in manually by the client
@@ -70,6 +74,15 @@ Google's own OAuth consent screens.
        .setMimeType(ContentService.MimeType.JSON);
    }
    ```
+
+   **Gotcha**: Sheets (and Apps Script's `appendRow`/`setValue`) auto-detects
+   formulas — any value starting with `+`, `-`, `=`, or `@` is parsed as a
+   formula, not written as literal text. Since the site sends phone as
+   `"+91 9876543210"`, the leading `+` triggers this and shows a parse error
+   in the Phone cell instead of the number. The apostrophe prefix above is
+   the standard escape for "treat as text." If you already have broken rows
+   from before this fix, they need to be retyped by hand — the fix only
+   prevents it for new rows going forward.
 
 3. Click **Deploy → New deployment**. For "Select type," choose **Web app**.
    Set:

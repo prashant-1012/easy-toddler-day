@@ -12,6 +12,9 @@ export const CONTACT_EMAIL = 'hello@easytoddlerday.com'
 export const CONTACT_PHONE = '+91 00000 00000'
 export const CONTACT_ADDRESS = 'Address to be added'
 
+export const DEVELOPER_NAME = 'Growthentic'
+export const DEVELOPER_URL = 'https://growthentic.in/'
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Shop', href: '/shop' },

@@ -41,6 +41,7 @@ const defaultTitle = `${SITE_NAME} | Premium Toddler Learning Workbooks`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  generator: "Growthentic (growthentic.in)",
   title: {
     default: defaultTitle,
     template: `%s | ${SITE_NAME}`,

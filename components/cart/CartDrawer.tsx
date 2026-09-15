@@ -11,7 +11,7 @@ import { buildOrderMessage, openWhatsApp } from "@/lib/utils/whatsapp";
 import { submitOrderLead } from "@/lib/utils/leads";
 
 const inputClasses =
-  "w-full rounded-xl border border-warm-gray-light bg-cloud px-4 py-3 text-base text-charcoal placeholder:text-warm-gray focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky";
+  "w-full rounded-xl border border-warm-gray-light bg-cloud px-4 py-3 text-base text-charcoal placeholder:text-warm-gray/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky";
 
 export function CartDrawer() {
   const { isDrawerOpen, closeDrawer, items, subtotal, updateQuantity, removeItem } =
@@ -40,10 +40,11 @@ export function CartDrawer() {
 
   function handleCheckout(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const fullPhone = `+91 ${phone}`;
     // Open WhatsApp synchronously, first — this is the real checkout path
     // and must never be delayed by (or fail because of) the lead log below.
-    openWhatsApp(buildOrderMessage(items, { name, phone }));
-    submitOrderLead({ name, phone, items, subtotal });
+    openWhatsApp(buildOrderMessage(items, { name, phone: fullPhone }));
+    submitOrderLead({ name, phone: fullPhone, items, subtotal });
   }
 
   return (
@@ -68,7 +69,7 @@ export function CartDrawer() {
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            <div className="flex items-center justify-between border-b border-warm-gray-light px-6 py-5">
+            <div className="flex items-center justify-between border-b border-warm-gray-light px-6 py-1">
               <h2 className="font-display text-xl font-semibold text-charcoal">
                 Your Cart
               </h2>
@@ -110,18 +111,18 @@ export function CartDrawer() {
 
                 <form
                   onSubmit={handleCheckout}
-                  className="border-t border-warm-gray-light px-6 py-5"
+                  className="border-t border-warm-gray-light px-6 py-4"
                 >
-                  <div className="mb-4 flex items-center justify-between text-lg font-semibold text-charcoal">
+                  <div className="mb-3 flex items-center justify-between text-lg font-semibold text-charcoal">
                     <span>Subtotal</span>
                     <span>{formatPrice(subtotal)}</span>
                   </div>
 
-                  <div className="mb-4 flex flex-col gap-3">
-                    <div className="flex flex-col gap-2">
+                  <div className="mb-3 flex flex-col gap-2">
+                    <div className="flex items-center gap-3">
                       <label
                         htmlFor="cart-checkout-name"
-                        className="text-sm font-semibold text-charcoal"
+                        className="w-14 shrink-0 text-sm font-semibold text-charcoal"
                       >
                         Name
                       </label>
@@ -136,30 +137,47 @@ export function CartDrawer() {
                         className={inputClasses}
                       />
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3">
                       <label
                         htmlFor="cart-checkout-phone"
-                        className="text-sm font-semibold text-charcoal"
+                        className="w-14 shrink-0 text-sm font-semibold text-charcoal"
                       >
                         Phone
                       </label>
-                      <input
-                        id="cart-checkout-phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        value={phone}
-                        onChange={(event) => setPhone(event.target.value)}
-                        placeholder="Your WhatsApp number"
-                        className={inputClasses}
-                      />
+                      <div className="flex w-full items-center gap-2 rounded-xl border border-warm-gray-light bg-cloud px-4 py-3 focus-within:ring-2 focus-within:ring-sky">
+                        <span className="shrink-0 select-none text-base text-warm-gray">
+                          +91
+                        </span>
+                        <span
+                          className="shrink-0 text-warm-gray-light"
+                          aria-hidden="true"
+                        >
+                          |
+                        </span>
+                        <input
+                          id="cart-checkout-phone"
+                          name="phone"
+                          type="tel"
+                          inputMode="numeric"
+                          required
+                          pattern="[0-9]{10}"
+                          title="Enter a 10-digit phone number"
+                          maxLength={10}
+                          value={phone}
+                          onChange={(event) =>
+                            setPhone(event.target.value.replace(/\D/g, "").slice(0, 10))
+                          }
+                          placeholder="98765 43210"
+                          className="w-full min-w-0 bg-transparent text-base text-charcoal placeholder:text-warm-gray/60 focus-visible:outline-none"
+                        />
+                      </div>
                     </div>
                   </div>
 
                   <Button type="submit" size="lg" className="w-full">
                     Checkout via WhatsApp
                   </Button>
-                  <p className="mt-3 text-center text-xs text-warm-gray">
+                  <p className="mt-2 text-center text-xs text-warm-gray">
                     We&apos;ll confirm your order details over WhatsApp.
                   </p>
                 </form>
