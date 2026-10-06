@@ -92,7 +92,7 @@ export default function AboutPage() {
               Ready to Start Playing, Learning, and Growing Together?
             </h2>
             <Button href="/shop" size="lg">
-              Shop Workbooks
+              Shop Products
             </Button>
           </div>
         </Reveal>

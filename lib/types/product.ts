@@ -1,4 +1,4 @@
-export type ProductCategory = 'calendar' | 'theme-workbook'
+export type ProductCategory = 'calendar' | 'workbook' | 'bundle' | 'free-resource'
 
 export interface Product {
   id: string

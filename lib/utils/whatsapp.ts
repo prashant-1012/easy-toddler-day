@@ -14,7 +14,8 @@ export function buildOrderMessage(
   const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
   return [
-    `Hi Easy Toddler Day! I'm ${customer.name} (${customer.phone}). I'd like to order:`,
+    'Hi, Easy Toddler Day!',
+    `I'm ${customer.name} (${customer.phone}). I'd like to order:`,
     '',
     ...lines,
     '',

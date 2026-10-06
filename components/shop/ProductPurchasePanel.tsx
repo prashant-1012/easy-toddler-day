@@ -12,7 +12,9 @@ import type { Product } from "@/lib/types/product";
 
 const categoryLabels: Record<Product["category"], string> = {
   calendar: "Weekly Calendar",
-  "theme-workbook": "Theme Workbook",
+  workbook: "Toddler Workbook",
+  bundle: "Bundle",
+  "free-resource": "Free Resource",
 };
 
 export function ProductPurchasePanel({ product }: { product: Product }) {

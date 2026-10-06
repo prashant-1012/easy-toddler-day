@@ -1,28 +1,45 @@
-"use client";
-
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import { Heart, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Blob } from "@/components/ui/Blob";
 
 export function Hero() {
-  const shouldReduceMotion = useReducedMotion();
-
-  const floatSlow = shouldReduceMotion
-    ? {}
-    : { y: [0, -14, 0], transition: { duration: 5, repeat: Infinity, ease: "easeInOut" as const } };
-  const floatFast = shouldReduceMotion
-    ? {}
-    : {
-        y: [0, 10, 0],
-        transition: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay: 0.4 },
-      };
-
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-6 sm:px-6 sm:pt-8 lg:grid-cols-2 lg:gap-8 lg:pb-24 lg:pt-10 lg:px-10 xl:px-12">
-        <div className="hero-fade-up flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
+    <section className="relative overflow-hidden bg-cream">
+      {/* Mobile / small tablet: portrait image anchored to the bottom. Its empty
+          top area sits behind the text and fades into the page background. */}
+      <div
+        className="absolute inset-x-0 bottom-0 aspect-[2/3] md:hidden"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 22%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 22%)",
+        }}
+      >
+        <Image
+          src="/images/hero-mobile.png"
+          alt="A toddler happily coloring with markers beside a stack of workbooks"
+          fill
+          priority
+          sizes="(max-width: 767px) 100vw, 1px"
+          className="object-cover object-bottom"
+        />
+      </div>
+
+      {/* Tablet / desktop: landscape image fills the hero, child on the right. */}
+      <div className="absolute inset-0 hidden md:block">
+        <Image
+          src="/images/hero-desktop.png"
+          alt="A toddler happily coloring with markers beside a stack of workbooks"
+          fill
+          priority
+          sizes="(min-width: 768px) 100vw, 1px"
+          className="object-cover object-right"
+        />
+        {/* Keeps the text readable where it sits close to the child on narrower screens. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream/90 via-cream/50 to-transparent lg:from-cream/70 lg:via-transparent" />
+      </div>
+
+      <div className="relative z-10 mx-auto flex max-w-7xl px-4 pb-[90vw] pt-10 sm:px-6 md:min-h-[560px] md:items-center md:pb-16 md:pt-16 lg:min-h-[640px] lg:px-10 xl:min-h-[700px] xl:px-12">
+        <div className="hero-fade-up flex flex-col items-center gap-5 text-center md:max-w-[26rem] md:items-start md:text-left lg:max-w-lg xl:max-w-xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-sage/15 px-4 py-1.5 text-sm font-semibold text-sage-dark">
             <Sparkles size={16} aria-hidden="true" />
             Screen-Free Learning, Made Joyful
@@ -33,7 +50,7 @@ export function Hero() {
             <span className="text-coral">Actually Want</span> to Open
           </h1>
 
-          <p className="max-w-md text-lg text-warm-gray">
+          <p className="max-w-md text-base text-warm-gray sm:text-lg">
             Screen-free, Montessori-inspired activity books designed for
             little hands — because the best learning still happens with a
             pencil and a proud smile.
@@ -41,54 +58,12 @@ export function Hero() {
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button href="/shop" size="lg">
-              Shop Workbooks
+              Shop Products
             </Button>
-            <Button href="#learning-benefits" variant="secondary" size="lg">
+            <Button href="#calendar-pack" variant="secondary" size="lg">
               See How It Works
             </Button>
           </div>
-        </div>
-
-        <div className="hero-fade-scale relative mx-auto h-[340px] w-[280px] sm:h-[420px] sm:w-[360px] lg:h-[380px] lg:w-[340px] xl:h-[480px] xl:w-[440px]">
-          <Blob color="var(--color-coral)" className="left-[-12%] top-[-8%] h-56 w-56 sm:h-64 sm:w-64" />
-          <Blob color="var(--color-sky)" className="bottom-[-12%] right-[-12%] h-64 w-64 sm:h-72 sm:w-72" />
-
-          <motion.div
-            animate={floatSlow}
-            className="absolute inset-x-6 top-0 h-[85%] overflow-hidden rounded-[2.5rem]"
-          >
-            <Image
-              src="/images/banner-quiz.png"
-              alt="Curious toddler pausing to think"
-              fill
-              priority
-              className="object-contain"
-              sizes="(min-width: 1024px) 440px, 360px"
-            />
-          </motion.div>
-
-          <motion.div
-            animate={floatFast}
-            className="absolute -bottom-2 -left-2 w-24 rotate-[-8deg] overflow-hidden rounded-xl shadow-lift sm:w-32"
-          >
-            <Image
-              src="/products/theme-workbook-a-f.png"
-              alt="Theme Workbook: A–F cover"
-              width={200}
-              height={260}
-              className="h-auto w-full object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            animate={floatFast}
-            className="absolute -right-2 -top-4 flex items-center gap-2 rounded-full bg-cloud px-3 py-1.5 shadow-soft sm:right-0 sm:top-8 sm:px-4 sm:py-2"
-          >
-            <Heart size={16} className="text-coral" fill="currentColor" aria-hidden="true" />
-            <span className="text-sm font-semibold text-charcoal">
-              Loved by Little Learners
-            </span>
-          </motion.div>
         </div>
       </div>
     </section>

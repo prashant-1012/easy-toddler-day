@@ -40,7 +40,7 @@ composition:
   with slow float/parallax on mount and subtle scroll parallax.
 - Logo integrated tastefully (small, in the navbar — not competing in
   the hero itself unless it reads as part of the composition).
-- Strong single CTA ("Shop Workbooks" or similar) plus a secondary
+- Strong single CTA ("Shop Products" or similar) plus a secondary
   lower-emphasis link (e.g. "See how it works" scrolling to Learning
   Benefits).
 - On mobile, the layered composition simplifies to a single centered

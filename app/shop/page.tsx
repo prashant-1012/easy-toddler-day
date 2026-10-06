@@ -7,7 +7,7 @@ import { SITE_URL } from "@/lib/constants";
 import { products } from "@/lib/data/products";
 
 export const metadata: Metadata = {
-  title: "Shop Workbooks",
+  title: "Shop Products",
   description:
     "Browse our full collection of screen-free, Montessori-inspired toddler workbooks.",
 };

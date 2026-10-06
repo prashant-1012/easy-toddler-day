@@ -30,8 +30,8 @@ export function About() {
             </div>
             <div className="absolute bottom-0 right-0 w-40 rotate-[7deg] overflow-hidden rounded-2xl shadow-lift sm:w-48">
               <Image
-                src="/products/theme-workbook-a-f.png"
-                alt="Theme Workbook: A–F cover"
+                src="/products/toddler-workbook-a-m.png"
+                alt="Toddler Workbook A–M cover"
                 width={240}
                 height={310}
                 className="h-auto w-full object-cover"

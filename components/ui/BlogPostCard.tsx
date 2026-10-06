@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { BlogCover } from "@/components/ui/BlogCover";
 import { formatDate } from "@/lib/utils/format-date";
@@ -11,7 +11,8 @@ interface BlogPostCardProps {
 
 export function BlogPostCard({ post, priority = false }: BlogPostCardProps) {
   return (
-    <Link href={`/blog/${post.slug}`} className="group block h-full">
+    // Post detail pages are not linked for now (was a <Link href={`/blog/${post.slug}`}>).
+    <div className="group block h-full">
       <Card className="flex h-full flex-col overflow-hidden">
         <BlogCover
           post={post}
@@ -28,11 +29,11 @@ export function BlogPostCard({ post, priority = false }: BlogPostCardProps) {
             {post.title}
           </h3>
           <p className="flex-1 text-sm text-warm-gray">{post.excerpt}</p>
-          <span className="mt-2 text-sm font-semibold text-coral-dark">
+          {/* <span className="mt-2 text-sm font-semibold text-coral-dark">
             Read More →
-          </span>
+          </span> */}
         </div>
       </Card>
-    </Link>
+    </div>
   );
 }

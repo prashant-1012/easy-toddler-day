@@ -12,14 +12,17 @@ export const CONTACT_EMAIL = 'hello@easytoddlerday.com'
 export const CONTACT_PHONE = '+91 00000 00000'
 export const CONTACT_ADDRESS = 'Address to be added'
 
+export const INSTAGRAM_URL = 'https://www.instagram.com/easytoddlerday/'
+
 export const DEVELOPER_NAME = 'Growthentic'
 export const DEVELOPER_URL = 'https://growthentic.in/'
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Shop', href: '/shop' },
-  { label: 'Blogs', href: '/blog' },
-  { label: 'Testimonials', href: '/testimonials' },
+  // Hidden for now — both are shown as sections on the home page instead.
+  // { label: 'Blogs', href: '/blog' },
+  // { label: 'Testimonials', href: '/testimonials' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const

@@ -46,7 +46,7 @@ export default function TestimonialsPage() {
             Ready to Start Your Toddler&apos;s Learning Adventure?
           </h2>
           <Button href="/shop" size="lg">
-            Shop Workbooks
+            Shop Products
           </Button>
         </div>
       </Reveal>

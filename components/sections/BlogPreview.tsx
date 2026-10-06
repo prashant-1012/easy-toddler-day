@@ -1,7 +1,7 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BlogPostCard } from "@/components/ui/BlogPostCard";
 import { Reveal } from "@/components/ui/Reveal";
-import { Button } from "@/components/ui/Button";
+// import { Button } from "@/components/ui/Button";
 import { blogPosts } from "@/lib/data/blogPosts";
 
 export function BlogPreview() {
@@ -23,11 +23,13 @@ export function BlogPreview() {
           </Reveal>
         ))}
       </div>
+      {/* Hidden: /blog page is not linked for now.
       <div className="mt-12 flex justify-center">
         <Button href="/blog" variant="secondary" size="lg">
           View All Posts
         </Button>
       </div>
+      */}
     </section>
   );
 }

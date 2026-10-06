@@ -3,7 +3,7 @@ import { Quote, Star } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
-import { Button } from "@/components/ui/Button";
+// import { Button } from "@/components/ui/Button";
 import { getHomepageTestimonials } from "@/lib/data/testimonials";
 import { avatarColors, getInitials } from "@/lib/utils/avatar";
 
@@ -79,11 +79,13 @@ export function Testimonials() {
           ))}
         </div>
 
+        {/* Hidden: /testimonials page is not linked for now.
         <div className="mt-12 flex justify-center">
           <Button href="/testimonials" variant="secondary" size="lg">
             View All Testimonials
           </Button>
         </div>
+        */}
       </div>
     </section>
   );

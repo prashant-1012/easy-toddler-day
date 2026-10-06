@@ -17,18 +17,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/testimonials`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
+    // Hidden for now — not linked from the site.
+    // {
+    //   url: `${SITE_URL}/blog`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "weekly",
+    //   priority: 0.7,
+    // },
+    // {
+    //   url: `${SITE_URL}/testimonials`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "monthly",
+    //   priority: 0.6,
+    // },
     {
       url: `${SITE_URL}/about`,
       lastModified: new Date(),
@@ -43,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- blog pages hidden for now
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.date),
@@ -57,5 +59,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...blogRoutes, ...productRoutes];
+  return [...staticRoutes, /* ...blogRoutes, */ ...productRoutes];
 }
