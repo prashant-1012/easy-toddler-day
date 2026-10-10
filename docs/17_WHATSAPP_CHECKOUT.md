@@ -16,28 +16,63 @@ cart drawer, directly above the checkout button (added 2026-09-16 — see
 for why):
 
 ```
-Hi Easy Toddler Day! I'm Priya Sharma (98765 43210). I'd like to order:
+Hi Sneha!
+I’d like to place an order with Easy Toddler Day.
 
-1. Alphabet Tracing Workbook x2 — ₹598
-2. Number Fun Workbook x1 — ₹299
+*Customer*: Priya Sharma
+*Mobile*: +91 9876543210
 
-Total Items: 3
-Total Price: ₹897
+*Order Details*:
+• Weekly Learning Calendar × 2 — ₹698
+• Theme Workbook A–F × 1 — ₹499
 
-(Sent from the website cart)
+*Total Items*: 3
+*Total Amount*: ₹1,197
+
+*Please let me know the next steps.*
+Thank you!
+
+_Order placed through the Easy Toddler Day website._
 ```
 
-Rules:
-- Opening line includes the customer's name and phone, so the business
-  owner sees who they're talking to immediately in the WhatsApp chat —
-  not just implicitly from WhatsApp's own contact info.
-- One line per item: `<name> x<quantity> — ₹<line total>`.
+**Revised 2026-10-10** — the owner supplied this exact wording to replace
+the earlier plain-text format. Rules:
+
+- Greets the owner **by name** (`BUSINESS_OWNER_NAME = 'Sneha'` in
+  `lib/constants.ts`), not the brand — it reads like a person writing to a
+  person, which is the point of a WhatsApp handoff. Change that constant if
+  whoever answers the business number changes.
+- Uses **WhatsApp's own markdown**: `*bold*` for the field labels and the
+  closing ask, `_italic_` for the provenance line. The markers must sit
+  tight against the text they wrap (`*Customer*:`, not `* Customer *:`) or
+  WhatsApp renders them as literal asterisks.
+- `*Customer*` / `*Mobile*` are their own labelled lines rather than being
+  folded into the greeting, so the owner can scan who they're talking to
+  without reading a sentence.
+- One bulleted line per item: `• <name> × <quantity> — ₹<line total>`
+  (U+2022 bullet, U+00D7 multiplication sign, U+2014 em dash — not `*`,
+  `x` or `-`; a leading `*` or `-` would collide with WhatsApp's own
+  list/bold syntax).
 - `Total Items` = sum of quantities (not distinct product count).
-- `Total Price` = sum of `price * quantity` across items, formatted via
-  the same `format-price.ts` helper used everywhere else (no separate
-  formatting logic here).
-- Trailing `(Sent from the website cart)` line so the business owner
-  can distinguish website orders from organic WhatsApp messages.
+- `Total Amount` = sum of `price * quantity`, formatted via the same
+  `format-price.ts` helper used everywhere else (no separate formatting
+  logic here).
+- Trailing italic `_Order placed through the Easy Toddler Day website._`
+  line so the owner can distinguish website orders from organic WhatsApp
+  messages.
+- **No emoji (2026-10-11).** The owner's original wording had a waving hand
+  (U+1F44B) after the greeting and a yellow heart (U+1F49B) after "Thank
+  you!", and they were implemented as-is. The owner then reported both
+  arriving in WhatsApp as a missing-glyph box. The source and transport were
+  verified correct — the compiled bundle keeps `👋` as an escape the
+  JS parser resolves to the real code point, and `encodeURIComponent` emits
+  valid UTF-8 (`%F0%9F%91%8B`) — so nothing in this project was corrupting
+  them; some WhatsApp clients mangle astral-plane (4-byte UTF-8) characters
+  in `wa.me` prefilled text. Both were removed rather than debugged per
+  client, since they carried no information and a broken glyph in a
+  customer's order message looks worse than none. **Don't re-add emoji to
+  this message** without testing on a real device first. BMP punctuation
+  (bullet, ×, em dash, curly apostrophe, ₹) is 2-3 byte UTF-8 and is fine.
 
 ## Link construction
 

@@ -7,6 +7,10 @@ export const SITE_URL = 'https://easytoddlerday.vercel.app'
 // Confirmed business WhatsApp number, digits only including country code (required by wa.me links)
 export const WHATSAPP_NUMBER = '917972052896'
 
+// Who the customer is greeted by name in the WhatsApp order message — the
+// person who actually answers the business number.
+export const BUSINESS_OWNER_NAME = 'Sneha'
+
 // TODO: replace with real contact details before launch
 export const CONTACT_EMAIL = 'easytoddlerday@gmail.com'
 export const CONTACT_PHONE = '+91 00000 00000'

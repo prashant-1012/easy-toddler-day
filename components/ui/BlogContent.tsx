@@ -1,19 +1,6 @@
-import { Fragment } from "react";
 import { Button } from "@/components/ui/Button";
+import { renderInline } from "@/components/ui/RichText";
 import type { BlogBlock } from "@/lib/types/blog";
-
-// Inline text supports **bold** only.
-function renderInline(text: string) {
-  return text.split(/\*\*(.+?)\*\*/g).map((part, index) =>
-    index % 2 === 1 ? (
-      <strong key={index} className="font-semibold text-charcoal">
-        {part}
-      </strong>
-    ) : (
-      <Fragment key={index}>{part}</Fragment>
-    )
-  );
-}
 
 export function BlogContent({ blocks }: { blocks: BlogBlock[] }) {
   return (

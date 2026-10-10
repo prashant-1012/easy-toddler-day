@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BookOpen, PlayCircle, Sprout } from "lucide-react";
 import { AboutHero } from "@/components/sections/AboutHero";
+import { CreatorStory } from "@/components/sections/CreatorStory";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -41,13 +42,12 @@ const colorClasses = {
   sage: "bg-sage/15 text-sage-dark",
 };
 
-// TODO: personalize with the real founder story / brand history if desired
 export default function AboutPage() {
   return (
     <>
       <AboutHero />
 
-      <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-10 lg:pb-24 xl:px-12">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-10 xl:px-12">
         <Reveal>
           <div className="mx-auto flex max-w-2xl flex-col gap-4 text-center text-lg text-warm-gray">
             <p>
@@ -85,9 +85,13 @@ export default function AboutPage() {
             </Reveal>
           ))}
         </div>
+      </div>
 
+      <CreatorStory />
+
+      <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-10 lg:pb-24 xl:px-12">
         <Reveal delay={0.2}>
-          <div className="mt-16 flex flex-col items-center gap-4 text-center">
+          <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="font-display text-2xl font-semibold text-charcoal sm:text-3xl">
               Ready to Start Playing, Learning, and Growing Together?
             </h2>

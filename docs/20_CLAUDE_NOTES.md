@@ -175,3 +175,48 @@ deleted; the colour values sampled from the original are recorded in
 Organization JSON-LD. The favicon (`app/icon.tsx`, `apple-icon.tsx`) and
 `ogImage.jpg` were intentionally left unchanged. `CONTACT_EMAIL` is now
 `easytoddlerday@gmail.com`; the phone number is still a placeholder.
+
+## Founder story added to /about (2026-10-11)
+
+The owner supplied her own first-person story ("Why I Made This" — ex-engineer,
+stepped away from work after her son was born, started making worksheets for
+him around age 2½, her engineering instinct turned them into a structured
+26-week programme). It replaces the `// TODO: personalize with the real founder
+story` marker that was sitting in `app/about/page.tsx`.
+
+Implementation notes:
+
+- Content is **verbatim hers** — it lives in `lib/data/creatorStory.ts` per the
+  "`lib/data/*` is the single source of truth" rule, not inline in the
+  component. Edits there should be formatting only; the voice is the asset.
+- Rendered by `components/sections/CreatorStory.tsx`, placed between the
+  Play/Learn/Grow values grid and the closing CTA so the CTA still comes last.
+  It sits *outside* the page's `max-w-4xl` body container because it brings its
+  own section padding and `Blob` accent; the first container's bottom padding
+  was dropped to avoid doubling up with the section's `py-20`.
+- `BlogContent`'s private `renderInline` (`**bold**` parser) was **extracted**
+  to `components/ui/RichText.tsx` and both components now import it, rather
+  than copy-pasting the regex — per the "no component duplicates logic" rule in
+  [14_FOLDER_STRUCTURE.md](./14_FOLDER_STRUCTURE.md).
+
+### Still to resolve with the owner
+
+1. **No photo of Sneha exists.** `public/images/sneha.webp` is the testimonial
+   avatar for a *customer* ("Divyanka's Mom") and must not be reused as the
+   founder's portrait. `signature.portrait` in `creatorStory.ts` is left unset
+   and the component renders the portrait only when it's present, so dropping
+   a real photo in and setting that one field is all that's needed.
+2. **The older About intro copy now contradicts her story.** The paragraph
+   above the values grid still says the brand "started with a simple
+   frustration: most 'educational' products for toddlers were either screens in
+   disguise or worksheets designed for kids twice their age" and is written as
+   "we". That was invented placeholder copy from the initial build, and it now
+   sits on the same page as the real, different origin story. Left in place
+   rather than silently deleted — flag to the owner: cut the invented origin
+   paragraph (the second one, about *how* the workbooks are built, still reads
+   fine and is compatible), or reword it to lead into Sneha's story.
+3. The story is only on `/about`. The homepage has a condensed `About` section;
+   adding a short teaser there linking through to `/about` is an option, but
+   the homepage section order in
+   [03_INFORMATION_ARCHITECTURE.md](./03_INFORMATION_ARCHITECTURE.md) is
+   described as deliberate, so it wasn't changed unasked.

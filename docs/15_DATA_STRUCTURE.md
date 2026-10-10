@@ -36,6 +36,40 @@ added, so dropping more photos (interior spreads, back cover) into
 `public/products/` and listing them in a product's `gallery` array is
 enough; no component changes needed.
 
+## `lib/types/creator.ts`
+
+The founder's story shown on `/about` (added 2026-10-11, supplied verbatim
+by the creator — see [20_CLAUDE_NOTES.md](./20_CLAUDE_NOTES.md)). Content
+lives in `lib/data/creatorStory.ts`, rendered by
+`components/sections/CreatorStory.tsx`.
+
+```ts
+export type CreatorStoryBlock =
+  | { type: 'p'; text: string }              // narrative paragraph
+  | { type: 'cadence'; lines: string[] }     // short rhythmic lines, one beat
+  | { type: 'highlight'; text: string }      // pull quote
+
+export interface CreatorStory {
+  eyebrow: string
+  title: string
+  intro: string
+  blocks: CreatorStoryBlock[]
+  signature: { name: string; role: string; portrait?: string }
+}
+```
+
+`cadence` exists because her story uses runs of short lines ("Sometimes it's
+a song.") that read as a single beat, not as a bulleted list — rendering them
+as `ul` would change the voice. `signature.portrait` is optional and
+currently unset: there is no photo of the creator in `public/images`
+(`sneha.webp` there is a *customer's* testimonial avatar — don't reuse it
+for the founder). `CreatorStory` renders the portrait automatically once a
+real one is added.
+
+Inline text supports `**bold**` only, via the shared `renderInline` helper in
+`components/ui/RichText.tsx` — the same convention and now the same code as
+`BlogBlock`.
+
 ## `lib/types/cart.ts`
 
 ```ts
