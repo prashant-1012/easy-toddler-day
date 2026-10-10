@@ -15,7 +15,7 @@ const sizes: Record<WordmarkSize, string> = {
   xl: "text-5xl sm:text-6xl",
 };
 
-// Colors sampled directly from /public/images/easytoddlerday-removebg.png
+// Colors sampled directly from the original logo (see docs/07_COLOR_SYSTEM.md)
 // so any text rendering of the brand name matches the logo exactly.
 export function Wordmark({ size = "md", tagline = false, className }: WordmarkProps) {
   return (

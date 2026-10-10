@@ -5,7 +5,8 @@
       "Bash(node shot.mjs)",
       "Bash(lsof -ti:3000 -sTCP:LISTEN)",
       "Bash(xargs -r kill)",
-      "Bash(node sample-logo.mjs)"
+      "Bash(node sample-logo.mjs)",
+      "Bash(file public/new-images/*.png)"
     ]
   }
 }

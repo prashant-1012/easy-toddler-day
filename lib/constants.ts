@@ -8,7 +8,7 @@ export const SITE_URL = 'https://easytoddlerday.vercel.app'
 export const WHATSAPP_NUMBER = '917972052896'
 
 // TODO: replace with real contact details before launch
-export const CONTACT_EMAIL = 'hello@easytoddlerday.com'
+export const CONTACT_EMAIL = 'easytoddlerday@gmail.com'
 export const CONTACT_PHONE = '+91 00000 00000'
 export const CONTACT_ADDRESS = 'Address to be added'
 
@@ -26,3 +26,11 @@ export const NAV_LINKS = [
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const
+
+// Announcement strip shown above the navbar. Closing it lasts until the next
+// page refresh (see PromoBanner).
+export const PROMO_BANNER = {
+  highlight: 'up to 24% off',
+  href: '/shop/calendar-workbook-bundle',
+  ctaLabel: 'Shop Now',
+} as const

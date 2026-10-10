@@ -98,3 +98,43 @@ body {
     animation: none;
   }
 }
+
+/*
+ * Homepage testimonials marquee: the track holds two identical copies of the
+ * card row, so sliding it left by exactly 50% loops seamlessly. Pure CSS so it
+ * runs without waiting for hydration. Pauses on hover / keyboard focus, and
+ * while a review is open in the dialog (data-paused).
+ */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-left var(--marquee-duration, 60s) linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee-track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee-copy[aria-hidden="true"] {
+    display: none;
+  }
+}

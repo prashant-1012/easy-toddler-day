@@ -1,7 +1,6 @@
-// import Link from "next/link";
+import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { BlogCover } from "@/components/ui/BlogCover";
-import { formatDate } from "@/lib/utils/format-date";
 import type { BlogPost } from "@/lib/types/blog";
 
 interface BlogPostCardProps {
@@ -11,8 +10,7 @@ interface BlogPostCardProps {
 
 export function BlogPostCard({ post, priority = false }: BlogPostCardProps) {
   return (
-    // Post detail pages are not linked for now (was a <Link href={`/blog/${post.slug}`}>).
-    <div className="group block h-full">
+    <Link href={`/blog/${post.slug}`} className="group block h-full">
       <Card className="flex h-full flex-col overflow-hidden">
         <BlogCover
           post={post}
@@ -23,17 +21,17 @@ export function BlogPostCard({ post, priority = false }: BlogPostCardProps) {
         />
         <div className="flex flex-1 flex-col gap-2 p-5">
           <span className="text-xs font-semibold uppercase tracking-wide text-sky-dark">
-            {formatDate(post.date)} · {post.readTimeMinutes} min read
+            {post.category} · {post.readTimeMinutes} min read
           </span>
           <h3 className="font-display text-xl font-semibold text-charcoal transition-colors group-hover:text-coral-dark">
             {post.title}
           </h3>
           <p className="flex-1 text-sm text-warm-gray">{post.excerpt}</p>
-          {/* <span className="mt-2 text-sm font-semibold text-coral-dark">
+          <span className="mt-2 text-sm font-semibold text-coral-dark">
             Read More →
-          </span> */}
+          </span>
         </div>
       </Card>
-    </div>
+    </Link>
   );
 }

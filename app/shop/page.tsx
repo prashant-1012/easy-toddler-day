@@ -5,12 +5,24 @@ import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { SITE_URL } from "@/lib/constants";
 import { products } from "@/lib/data/products";
+import type { ProductCategory } from "@/lib/types/product";
 
 export const metadata: Metadata = {
   title: "Shop Products",
   description:
     "Browse our full collection of screen-free, Montessori-inspired toddler workbooks.",
 };
+
+// Display order on the shop page: bundle first, then the single products.
+const CATEGORY_ORDER: ProductCategory[] = [
+  "bundle",
+  "calendar",
+  "workbook",
+  "free-resource",
+];
+const shopProducts = [...products].sort(
+  (a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category)
+);
 
 export default function ShopPage() {
   return (
@@ -37,15 +49,14 @@ export default function ShopPage() {
       ))}
 
       <SectionHeading
-        eyebrow="Shop"
-        title="All Workbooks"
-        subtitle="Every workbook is designed for little hands, short attention spans, and big learning moments."
+        title="Calendars & workbooks"
+        subtitle="Printable and hard-copy learning tools built around one theme a week, so planning toddler activities takes minutes, not hours."
         align="left"
       />
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product, index) => (
-          <Reveal key={product.id} delay={(index % 3) * 0.06} className="h-full">
-            <ProductCard product={product} priority={index < 3} />
+      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {shopProducts.map((product, index) => (
+          <Reveal key={product.id} delay={(index % 4) * 0.06} className="h-full">
+            <ProductCard product={product} priority={index < 4} />
           </Reveal>
         ))}
       </div>

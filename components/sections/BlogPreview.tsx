@@ -5,9 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { blogPosts } from "@/lib/data/blogPosts";
 
 export function BlogPreview() {
-  const posts = [...blogPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const posts = blogPosts.slice(0, 3);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-10 lg:py-28 xl:px-12">

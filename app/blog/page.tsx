@@ -11,9 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const posts = [...blogPosts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  const posts = blogPosts;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-10 lg:py-20 xl:px-12">

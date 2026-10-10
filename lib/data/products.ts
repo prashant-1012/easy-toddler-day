@@ -7,6 +7,8 @@ export const products: Product[] = [
     id: 'p1',
     slug: 'weekly-learning-calendar',
     name: 'Weekly Learning Calendar',
+    cardLabel: 'Hard Copy · Ages 2–4',
+    cardTitle: 'Weekly Learning Calendar — Level 1',
     shortDescription:
       'A 26-week, undated calendar that turns everyday routines into playful learning moments.',
     description:
@@ -30,6 +32,8 @@ export const products: Product[] = [
     id: 'p2',
     slug: 'toddler-workbook-a-m',
     name: 'Toddler Workbook: Week A–M',
+    cardLabel: 'Digital · Instant Download',
+    cardTitle: 'Theme Workbook (Week A–M)',
     shortDescription:
       'Letters A to M with tracing, matching, and first vocabulary for little hands.',
     description:
@@ -53,6 +57,8 @@ export const products: Product[] = [
     id: 'p3',
     slug: 'calendar-workbook-bundle',
     name: 'Bundle: Learning Calendar + Toddler Workbook',
+    cardLabel: 'Bundle · Best Value',
+    cardTitle: 'Calendar + Workbook Bundle',
     shortDescription:
       'The 26-week Weekly Learning Calendar plus the Week A–M Toddler Workbook, together.',
     description:
@@ -77,6 +83,8 @@ export const products: Product[] = [
     id: 'p4',
     slug: 'free-brain-boosting-activity-sheets',
     name: 'Free Brain Boosting Activity Sheets',
+    cardLabel: 'Free',
+    cardTitle: 'Brain-Boosting Activity Sheet',
     shortDescription:
       'A free set of playful activity sheets to try before you buy.',
     description:

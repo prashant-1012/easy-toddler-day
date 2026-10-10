@@ -4,6 +4,10 @@ export interface Product {
   id: string
   slug: string
   name: string
+  /** Short pill shown above the title on shop cards, e.g. "Bundle · Best Value". */
+  cardLabel?: string
+  /** Title shown on shop cards when it should differ from `name` (cart, WhatsApp and detail page keep `name`). */
+  cardTitle?: string
   shortDescription: string
   description: string
   price: number

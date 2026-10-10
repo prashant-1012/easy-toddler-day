@@ -74,7 +74,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/images/easytoddlerday-logo-cropped.png`,
+  logo: `${SITE_URL}/images/easytoddlerday-logo.png`,
   description: SITE_DESCRIPTION,
   contactPoint: {
     "@type": "ContactPoint",

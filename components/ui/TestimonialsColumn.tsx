@@ -20,7 +20,9 @@ function TestimonialCard({
 }) {
   return (
     <div className="w-full max-w-xs rounded-3xl border border-warm-gray-light/60 bg-cloud p-8 shadow-soft">
-      <p className="text-sm text-warm-gray">&ldquo;{testimonial.quote}&rdquo;</p>
+      <p className="whitespace-pre-line text-sm text-warm-gray">
+        &ldquo;{testimonial.quote}&rdquo;
+      </p>
       <div className="mt-5 flex items-center gap-3">
         {testimonial.avatar ? (
           <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
@@ -43,7 +45,9 @@ function TestimonialCard({
           <span className="font-semibold tracking-tight text-charcoal">
             {testimonial.name}
           </span>
-          <span className="text-xs text-warm-gray">{testimonial.relation}</span>
+          {testimonial.relation && (
+            <span className="text-xs text-warm-gray">{testimonial.relation}</span>
+          )}
         </div>
       </div>
     </div>

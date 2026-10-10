@@ -9,7 +9,7 @@ export function Contact() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-10 xl:px-12">
         <SectionHeading
           eyebrow="Contact"
-          title="Have a Question? Let's Chat"
+          title="Any doubts? DM me - Have a Question? Let's Chat"
           subtitle="Send us a message and we'll reply over WhatsApp — usually within a day."
         />
 

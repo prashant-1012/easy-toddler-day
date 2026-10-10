@@ -163,3 +163,15 @@ still placeholder/TODO.
    were left untouched during the product catalog replacement above.
    Flag to the owner: swap them for real product covers, or leave as
    generic decoration?
+
+## Logo replaced (2026-10-07)
+
+The owner supplied a new logo (`Logo_PNG.png`, 3786×1662 with transparent
+padding). It was trimmed to its alpha bounding box and resized to 1000×246
+(~4.06:1) as `public/images/easytoddlerday-logo.png`, which replaces the old
+`easytoddlerday-logo-cropped.png` and `easytoddlerday-removebg.png` (both
+deleted; the colour values sampled from the original are recorded in
+[07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md)). Used in the Navbar, Footer and
+Organization JSON-LD. The favicon (`app/icon.tsx`, `apple-icon.tsx`) and
+`ogImage.jpg` were intentionally left unchanged. `CONTACT_EMAIL` is now
+`easytoddlerday@gmail.com`; the phone number is still a placeholder.

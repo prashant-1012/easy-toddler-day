@@ -31,8 +31,8 @@ export function WhatsAppFloat() {
       >
         <WhatsAppIcon size={28} />
       </a>
-      <span className="rounded-full bg-cloud px-3 py-1 text-xs font-semibold text-charcoal shadow-soft">
-        Any doubts? DM me
+      <span className="max-w-[10rem] rounded-2xl bg-cloud px-3 py-1.5 text-center text-xs font-semibold text-charcoal shadow-soft sm:max-w-xs sm:rounded-full">
+        Any doubts? DM me - Have a Question? Let&apos;s Chat
       </span>
     </div>
   );

@@ -1,7 +1,7 @@
 # 07 — Color System
 
 **Revised (2026-08-02):** the palette below is sampled directly from
-the actual logo (`/public/images/easytoddlerday-removebg.png`), not
+the original logo file (since replaced by `/public/images/easytoddlerday-logo.png`), not
 guessed. The first version of this doc proposed an original palette
 inspired by the four reference brands without having inspected the
 logo file's real pixel colors — the project owner caught this
@@ -109,7 +109,7 @@ in their logo-matched color (Coral / Sky / Sage), with an optional
 tagline ("Play • Learn • Grow") beneath. Used anywhere the brand name
 appears as text rather than as the `<Image>` logo — e.g. the Footer.
 The navbar itself uses a cropped version of the actual logo image
-(`easytoddlerday-logo-cropped.png` — see
+(`easytoddlerday-logo.png` — see
 [20_CLAUDE_NOTES.md](./20_CLAUDE_NOTES.md) for why a cropped asset was
 needed) rather than the `Wordmark` text component.
 

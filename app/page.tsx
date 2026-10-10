@@ -1,21 +1,25 @@
 import { Hero } from "@/components/sections/Hero";
-import { FeaturedWorkbooks } from "@/components/sections/FeaturedWorkbooks";
+// import { FeaturedWorkbooks } from "@/components/sections/FeaturedWorkbooks";
 import { CalendarPack } from "@/components/sections/CalendarPack";
 // import { LearningBenefits } from "@/components/sections/LearningBenefits";
-import { About } from "@/components/sections/About";
+// import { About } from "@/components/sections/About";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { BlogPreview } from "@/components/sections/BlogPreview";
+import { WhyEasyToddlerDay } from "@/components/sections/WhyEasyToddlerDay";
+import { HowToUse } from "@/components/sections/HowToUse";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <FeaturedWorkbooks />
+      {/* <FeaturedWorkbooks /> */}
       <CalendarPack />
       {/* <LearningBenefits /> */}
-      <About />
+      {/* <About /> */}
       <Testimonials />
+      <WhyEasyToddlerDay />
+      <HowToUse />
       <BlogPreview />
       <Contact />
     </>

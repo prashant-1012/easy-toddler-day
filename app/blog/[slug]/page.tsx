@@ -3,10 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { BlogCover } from "@/components/ui/BlogCover";
+import { BlogContent } from "@/components/ui/BlogContent";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { blogPosts, getBlogPostBySlug } from "@/lib/data/blogPosts";
-import { formatDate } from "@/lib/utils/format-date";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -48,7 +48,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           "@type": "BlogPosting",
           headline: post.title,
           description: post.excerpt,
-          datePublished: post.date,
           url: `${SITE_URL}/blog/${post.slug}`,
           author: { "@type": "Organization", name: post.author },
           publisher: { "@type": "Organization", name: SITE_NAME },
@@ -70,19 +69,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         iconSize={72}
       />
 
-      <h1 className="mt-8 font-display text-3xl font-semibold text-charcoal sm:text-4xl">
+      <span className="mt-8 block text-sm font-semibold uppercase tracking-wide text-sky-dark">
+        {post.category}
+      </span>
+      <h1 className="mt-2 font-display text-3xl font-semibold text-charcoal sm:text-4xl">
         {post.title}
       </h1>
       <p className="mt-3 text-sm text-warm-gray">
-        By {post.author} · {formatDate(post.date)} · {post.readTimeMinutes} min
-        read
+        By {post.author} · {post.readTimeMinutes} min read
       </p>
 
-      <div className="mt-8 flex flex-col gap-5 text-lg text-warm-gray">
-        {post.content.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
+      <div className="mt-8">
+        <BlogContent blocks={post.content} />
       </div>
+
+      {post.source && (
+        <p className="mt-10 border-t border-warm-gray-light pt-4 text-sm text-warm-gray">
+          Source:{" "}
+          <a
+            href={post.source.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-sky-dark underline underline-offset-2 hover:text-coral-dark"
+          >
+            {post.source.label}
+          </a>
+        </p>
+      )}
     </article>
   );
 }

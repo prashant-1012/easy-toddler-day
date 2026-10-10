@@ -1,56 +1,88 @@
-import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Card } from "@/components/ui/Card";
-import { Reveal } from "@/components/ui/Reveal";
+import {
+  CalendarPackCarousel,
+  type CalendarPackSlide,
+} from "@/components/sections/CalendarPackCarousel";
 
-// TODO: placeholder card copy — replace with the real Calendar Pack contents.
-// Every panel reuses the calendar cover (cropped at a different position)
-// until per-card artwork exists.
-const packItems = [
+const sky = "text-sky-dark";
+const sage = "text-sage-dark";
+const coral = "text-coral-dark";
+
+const slides: CalendarPackSlide[] = [
+  {
+    heading: "My Name",
+    description: "Make learning personal by learning to recognise and build their own name.",
+    image: "/calendar-pack/name.png",
+    headingClass: coral,
+  },
   {
     heading: "26 Letters",
-    label: "Uppercase & Lowercase Tracing",
     description:
-      "From A to Z, each letter gets its own week of tracing and first-word practice.",
-    panelClass: "bg-sky/20",
-    headingClass: "text-sky-dark",
-    objectPosition: "50% 5%",
+      "Explore uppercase & lowercase letters through familiar objects and playful activities.",
+    image: "/calendar-pack/letters.png",
+    headingClass: sky,
   },
   {
-    heading: "Numbers 1-20",
-    label: "Counting, Tracing & Grouping",
-    description:
-      "Counting, tracing, and grouping with playful pictures that make numbers click.",
-    panelClass: "bg-sage/20",
-    headingClass: "text-sage-dark",
-    objectPosition: "50% 30%",
+    heading: "Numbers 0–25",
+    description: "Count, match & recognise numbers with dots and everyday objects.",
+    image: "/calendar-pack/numbers.png",
+    headingClass: sage,
   },
   {
-    heading: "Shapes",
-    label: "Find, Trace & Create",
-    description:
-      "From circles to triangles, spotting shapes in everyday objects around the house.",
-    panelClass: "bg-marigold/25",
-    headingClass: "text-marigold-dark",
-    objectPosition: "50% 55%",
+    heading: "14 Shapes",
+    description: "Discover 14 2D shapes through objects, matching, creating & play.",
+    image: "/calendar-pack/shapes.png",
+    headingClass: coral,
   },
   {
-    heading: "Colours",
-    label: "Mix, Match & Colour",
-    description:
-      "Matching and colouring activities that help toddlers name and tell colours apart.",
-    panelClass: "bg-coral/15",
-    headingClass: "text-coral-dark",
-    objectPosition: "50% 80%",
+    heading: "11 Colours",
+    description: "Learn colours through everyday objects your toddler already knows.",
+    image: "/calendar-pack/colours.png",
+    headingClass: sky,
   },
   {
-    heading: "Daily Routines",
-    label: "Learn Through Play",
+    heading: "26 Animals",
+    description: "Meet familiar animals through pictures, movement, sounds & play.",
+    image: "/calendar-pack/animals.png",
+    headingClass: sage,
+  },
+  {
+    heading: "26 Body Parts",
+    description: "Learn about the body through movement, songs and playful activities.",
+    image: "/calendar-pack/body-parts.png",
+    headingClass: coral,
+  },
+  {
+    heading: "Action & Movement Songs",
+    description: "Sing, dance & move with a new theme-based song every week.",
+    image: "/calendar-pack/songs.png",
+    headingClass: sky,
+  },
+  {
+    heading: "2 Daily Chores",
+    description: "Build independence by practising two simple chores every day.",
+    image: "/calendar-pack/chores.png",
+    headingClass: sage,
+  },
+  {
+    heading: "Theme-Based Play",
     description:
-      "Short, repeatable activities that fit into nap-time gaps and after-dinner wind-downs.",
-    panelClass: "bg-sky/20",
-    headingClass: "text-sky-dark",
-    objectPosition: "50% 100%",
+      "Play-based activities connected to the week's letter, number, shape, colour & theme.",
+    image: "/calendar-pack/theme-play.png",
+    headingClass: coral,
+  },
+  {
+    heading: "Role Play",
+    description: "Pretend to be someone new each week and learn through real-life play.",
+    image: "/calendar-pack/role-play.png",
+    headingClass: sky,
+  },
+  {
+    heading: "Tracing & Cutting",
+    description:
+      "Build fine-motor skills through simple tracing, cutting & tearing activities.",
+    image: "/calendar-pack/tracing-cutting.png",
+    headingClass: sage,
   },
 ];
 
@@ -63,37 +95,7 @@ export function CalendarPack() {
           subtitle="A complete 26-week learning journey. Just print, play, and watch them grow"
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {packItems.map((item, index) => (
-            <Reveal key={item.heading} delay={(index % 5) * 0.08} className="h-full">
-              <Card className="flex h-full flex-col gap-4 rounded-3xl p-4">
-                <div
-                  className={`relative aspect-square w-full overflow-hidden rounded-2xl ${item.panelClass}`}
-                >
-                  <Image
-                    src="/products/weekly-calendar.png"
-                    alt=""
-                    fill
-                    sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                    className="object-cover opacity-90"
-                    style={{ objectPosition: item.objectPosition }}
-                  />
-                  <span className="absolute inset-x-3 bottom-3 rounded-full bg-cloud px-3 py-1.5 text-center text-xs font-semibold text-charcoal shadow-soft">
-                    {item.label}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col gap-2 px-2 pb-2">
-                  <h3
-                    className={`font-display text-xl font-semibold ${item.headingClass}`}
-                  >
-                    {item.heading}
-                  </h3>
-                  <p className="text-sm text-warm-gray">{item.description}</p>
-                </div>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
+        <CalendarPackCarousel slides={slides} />
       </div>
     </section>
   );

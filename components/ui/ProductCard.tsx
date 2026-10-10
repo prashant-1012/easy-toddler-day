@@ -19,6 +19,8 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   const { items, addItem, updateQuantity, removeItem } = useCart();
   const cartItem = items.find((item) => item.productId === product.id);
   const href = `/shop/${product.slug}`;
+  // Only the bundle gets a highlighted image frame.
+  const isBundle = product.category === "bundle";
 
   function handleAddToCart() {
     addItem({
@@ -47,7 +49,9 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
     <Card className="flex h-full flex-col overflow-hidden">
       <Link
         href={href}
-        className="group relative block aspect-[1103/1426] w-full overflow-hidden rounded-t-2xl bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2"
+        className={`group relative block aspect-[1103/1426] w-full overflow-hidden rounded-t-2xl bg-warm-gray-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 ${
+          isBundle ? "border-4 border-marigold" : ""
+        }`}
       >
         <Image
           src={product.image}
@@ -63,19 +67,24 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           </Badge>
         )}
       </Link>
-      <div className="flex flex-1 flex-col gap-2 p-5">
+      <div className="flex flex-1 flex-col gap-3 p-5">
+        {product.cardLabel && (
+          <Badge variant="sky" className="w-fit font-semibold">
+            {product.cardLabel}
+          </Badge>
+        )}
         <Link
           href={href}
           className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
         >
           <h3 className="font-display text-xl font-semibold text-charcoal transition-colors hover:text-coral-dark">
-            {product.name}
+            {product.cardTitle ?? product.name}
           </h3>
         </Link>
         <p className="flex-1 text-sm text-warm-gray">
           {product.shortDescription}
         </p>
-        <div className="mt-2 flex items-center justify-between gap-3">
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
           <div className="flex items-baseline gap-2">
             <span className="text-lg font-bold text-charcoal">
               {formatPrice(product.price)}
