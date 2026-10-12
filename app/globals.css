@@ -146,7 +146,7 @@ body {
  */
 .btn-liquid-sweep {
   position: relative;
-  z-index: 0;
+  isolation: isolate;
   overflow: hidden;
   background-color: transparent !important;
   transition: color 300ms ease, border-color 300ms ease, transform 150ms ease;
