@@ -49,6 +49,10 @@ export function buildComingSoonInterestMessage(productName: string): string {
   return `Hi! I'm interested in the "${productName}" — please let me know when it's available to order.`
 }
 
+export function buildFreeDownloadMessage(productName: string): string {
+  return `Hi ${BUSINESS_OWNER_NAME}!\nI'd like to get the free "${productName}" PDF from ${SITE_NAME}. Please share it with me.\n\nThank you!`
+}
+
 export function buildContactMessage(data: { name: string; email: string; message: string }): string {
   return `Hi Easy Toddler Day! My name is ${data.name} (${data.email}).\n\n${data.message}`
 }

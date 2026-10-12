@@ -25,4 +25,8 @@ export interface Product {
   featured: boolean
   /** True for products announced but not yet available to order — shows a "Coming Soon" tag and disables Add to Cart. */
   comingSoon: boolean
+  /** Optional shipping or delivery note, e.g. "incl. shipping" or "Instant PDF download". */
+  shippingNote?: string
+  /** Direct link to download a digital resource or PDF printable if available. */
+  downloadUrl?: string
 }

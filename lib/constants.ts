@@ -34,7 +34,7 @@ export const NAV_LINKS = [
 // Announcement strip shown above the navbar. Closing it lasts until the next
 // page refresh (see PromoBanner).
 export const PROMO_BANNER = {
-  highlight: 'up to 24% off',
+  highlight: 'up to 40% off bundle',
   href: '/shop/calendar-workbook-bundle',
-  ctaLabel: 'Shop Now',
+  ctaLabel: 'Shop Bundle',
 } as const

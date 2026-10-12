@@ -85,13 +85,20 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           {product.shortDescription}
         </p>
         <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
-          <div className="flex items-baseline gap-2">
-            <span className="text-lg font-bold text-charcoal">
-              {formatPrice(product.price)}
-            </span>
-            {product.compareAtPrice && (
-              <span className="text-sm text-warm-gray line-through">
-                {formatPrice(product.compareAtPrice)}
+          <div className="flex flex-col">
+            <div className="flex items-baseline gap-2">
+              <span className="text-lg font-bold text-charcoal">
+                {formatPrice(product.price)}
+              </span>
+              {product.compareAtPrice && (
+                <span className="text-sm text-warm-gray line-through">
+                  {formatPrice(product.compareAtPrice)}
+                </span>
+              )}
+            </div>
+            {product.shippingNote && (
+              <span className="text-xs font-medium text-sage-dark">
+                {product.shippingNote}
               </span>
             )}
           </div>

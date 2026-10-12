@@ -19,6 +19,7 @@ type ButtonAsLink = BaseProps & {
   href: string;
   target?: string;
   rel?: string;
+  download?: boolean | string;
   onClick?: () => void;
 };
 
@@ -31,7 +32,7 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-coral-dark text-white hover:brightness-95 shadow-soft hover:shadow-lift",
   secondary:
-    "bg-transparent text-sky-dark border-2 border-sky hover:bg-sky hover:text-white",
+    "btn-liquid-sweep text-sky-dark border-2 border-sky",
   ghost: "bg-transparent text-charcoal hover:bg-warm-gray-light",
 };
 
@@ -51,7 +52,14 @@ export function Button({
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if ("href" in props && props.href) {
-    const { href, target, rel, onClick } = props;
+    const { href, target, rel, download, onClick } = props;
+    if (download) {
+      return (
+        <a href={href} target={target} rel={rel} download={download} onClick={onClick} className={classes}>
+          {children}
+        </a>
+      );
+    }
     return (
       <Link href={href} target={target} rel={rel} onClick={onClick} className={classes}>
         {children}
