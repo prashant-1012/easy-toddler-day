@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils/cn";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 interface BaseProps {
   variant?: Variant;
   size?: Size;
+  pill?: boolean;
   children: ReactNode;
   className?: string;
 }
@@ -26,13 +27,15 @@ type ButtonAsLink = BaseProps & {
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const base =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex min-h-11 items-center justify-center gap-2 font-semibold transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
   primary:
     "bg-coral-dark text-white hover:brightness-95 shadow-soft hover:shadow-lift",
   secondary:
     "btn-liquid-sweep text-sky-dark border-2 border-sky",
+  outline:
+    "bg-cloud text-charcoal border-2 border-charcoal hover:bg-charcoal hover:text-white shadow-soft hover:shadow-lift transition-colors",
   ghost: "bg-transparent text-charcoal hover:bg-warm-gray-light",
 };
 
@@ -45,11 +48,18 @@ const sizes: Record<Size, string> = {
 export function Button({
   variant = "primary",
   size = "md",
+  pill = false,
   className,
   children,
   ...props
 }: ButtonProps) {
-  const classes = cn(base, variants[variant], sizes[size], className);
+  const classes = cn(
+    base,
+    pill ? "rounded-full" : "rounded-xl",
+    variants[variant],
+    sizes[size],
+    className
+  );
 
   if ("href" in props && props.href) {
     const { href, target, rel, download, onClick } = props;

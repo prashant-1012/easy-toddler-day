@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 export function Hero() {
@@ -38,30 +37,32 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-cream/90 via-cream/50 to-transparent lg:from-cream/70 lg:via-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-7xl px-4 pb-[90vw] pt-10 sm:px-6 md:min-h-[560px] md:items-center md:pb-16 md:pt-16 lg:min-h-[640px] lg:px-10 xl:min-h-[700px] xl:px-12">
-        <div className="hero-fade-up flex flex-col items-center gap-5 text-center md:max-w-[26rem] md:items-start md:text-left lg:max-w-lg xl:max-w-xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-sage/15 px-4 py-1.5 text-sm font-semibold text-sage-dark">
-            <Sparkles size={16} aria-hidden="true" />
-            Screen-Free Learning, Made Joyful
-          </span>
-
-          <h1 className="font-display text-4xl font-semibold leading-tight text-charcoal sm:text-5xl xl:text-6xl">
-            Playful Workbooks Toddlers{" "}
-            <span className="text-coral">Actually Want</span> to Open
+      <div className="relative z-10 mx-auto flex max-w-7xl px-4 pb-[90vw] pt-6 sm:px-6 sm:pt-8 md:min-h-[480px] md:pb-12 md:pt-8 lg:min-h-[520px] lg:px-10 lg:pt-10 xl:min-h-[560px] xl:px-12 xl:pt-12">
+        <div className="hero-fade-up flex flex-col items-center gap-5 text-center md:max-w-xl md:items-start md:text-left lg:max-w-2xl xl:max-w-3xl">
+          <h1 className="font-display text-3xl font-semibold leading-tight text-charcoal sm:text-4xl lg:text-5xl">
+            <span className="md:whitespace-nowrap">One themed week at a time, make</span>{" "}
+            <span className="block md:whitespace-nowrap">
+              toddler time <span className="text-coral">joyful learning.</span>
+            </span>
           </h1>
 
-          <p className="max-w-md text-base text-warm-gray sm:text-lg">
-            Screen-free, Montessori-inspired activity books designed for
-            little hands — because the best learning still happens with a
-            pencil and a proud smile.
+          <p className="max-w-lg text-base text-warm-gray sm:text-lg">
+            No-prep weekly calendars and workbooks for toddlers aged 2–4 —
+            alphabets, numbers, shapes, songs and hands-on play, planned out so
+            you don&apos;t have to.
           </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Button href="/shop" size="lg">
-              Shop Products
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button href="/shop" size="lg" className="whitespace-nowrap">
+              Browse Calendars & Workbooks
             </Button>
-            <Button href="#calendar-pack" variant="secondary" size="lg">
-              See How It Works
+            <Button
+              href="/shop/free-brain-boosting-activity-sheets"
+              variant="secondary"
+              size="lg"
+              className="whitespace-nowrap"
+            >
+              Get Free Activity Sheet
             </Button>
           </div>
         </div>
