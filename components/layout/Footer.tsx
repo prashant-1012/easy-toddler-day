@@ -6,7 +6,6 @@ import {
   DEVELOPER_NAME,
   DEVELOPER_URL,
   INSTAGRAM_URL,
-  NAV_LINKS,
 } from "@/lib/constants";
 import { buildInquiryMessage, buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
@@ -36,14 +35,6 @@ export function Footer() {
         <p className="text-lg text-warm-gray">
           Toddler activities &amp; learning, planned week by week.
         </p>
-
-        <nav aria-label="Footer" className="flex flex-wrap items-center justify-center">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className={linkClass}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
 
         <div className="flex flex-wrap items-center justify-center">
           {socialLinks.map((link) => (

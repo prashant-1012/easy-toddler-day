@@ -34,7 +34,7 @@ const BUTTON_SIZE = 44;
 function getPerView(width: number) {
   if (width < 520) return 1.2;
   if (width < 800) return 2.2;
-  if (width < 1100) return 3.5;
+  if (width < 1100) return 5.5;
   return 4;
 }
 

@@ -7,7 +7,6 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { BlogPreview } from "@/components/sections/BlogPreview";
 import { WhyEasyToddlerDay } from "@/components/sections/WhyEasyToddlerDay";
 import { HowToUse } from "@/components/sections/HowToUse";
-import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <WhyEasyToddlerDay />
       <HowToUse />
       <BlogPreview />
-      <Contact />
     </>
   );
 }

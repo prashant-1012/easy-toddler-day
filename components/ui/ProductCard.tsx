@@ -62,14 +62,14 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
         />
         {product.comingSoon && (
-          <Badge variant="marigold" className="absolute right-3 top-3 shadow-soft">
+          <Badge variant="marigold" className="absolute right-2.5 top-2.5 text-xs shadow-soft">
             Coming Soon
           </Badge>
         )}
       </Link>
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-2 p-3.5 sm:p-4">
         {product.cardLabel && (
-          <Badge variant="sky" className="w-fit font-semibold">
+          <Badge variant="sky" className="w-fit text-[11px] font-semibold px-2 py-0.5">
             {product.cardLabel}
           </Badge>
         )}
@@ -77,50 +77,54 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           href={href}
           className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky"
         >
-          <h3 className="font-display text-xl font-semibold text-charcoal transition-colors hover:text-coral-dark">
+          <h3 className="font-display text-base font-semibold leading-snug text-charcoal transition-colors hover:text-coral-dark sm:text-lg min-h-[2.5rem] sm:min-h-[2.75rem] flex items-start">
             {product.cardTitle ?? product.name}
           </h3>
         </Link>
-        <p className="flex-1 text-sm text-warm-gray">
-          {product.shortDescription}
-        </p>
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
-          <div className="flex flex-col">
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-bold text-charcoal">
+        <div className="mt-auto flex items-end justify-between gap-2 border-t border-warm-gray-light/40 pt-2.5">
+          <div className="flex flex-col min-w-0">
+            <div className="flex items-baseline gap-1.5 flex-wrap">
+              <span className="text-base font-bold text-charcoal sm:text-lg">
                 {formatPrice(product.price)}
               </span>
               {product.compareAtPrice && (
-                <span className="text-sm text-warm-gray line-through">
+                <span className="text-xs text-warm-gray line-through">
                   {formatPrice(product.compareAtPrice)}
                 </span>
               )}
             </div>
             {product.shippingNote && (
-              <span className="text-xs font-medium text-sage-dark">
+              <span className="text-[11px] font-medium text-sage-dark truncate">
                 {product.shippingNote}
               </span>
             )}
           </div>
-          {product.comingSoon ? (
-            <Button size="sm" variant="ghost" disabled>
-              Coming Soon
-            </Button>
-          ) : !product.inStock ? (
-            <Button size="sm" disabled>
-              Out of Stock
-            </Button>
-          ) : cartItem ? (
-            <QuantityStepper
-              quantity={cartItem.quantity}
-              onIncrease={handleIncrease}
-              onDecrease={handleDecrease}
-            />
-          ) : (
-            <Button size="sm" onClick={handleAddToCart}>
-              Add to Cart
-            </Button>
-          )}
+          <div className="shrink-0">
+            {product.comingSoon ? (
+              <Button size="sm" variant="ghost" disabled className="h-8 px-2.5 text-xs">
+                Coming Soon
+              </Button>
+            ) : !product.inStock ? (
+              <Button size="sm" disabled className="h-8 px-2.5 text-xs">
+                Out of Stock
+              </Button>
+            ) : cartItem ? (
+              <QuantityStepper
+                quantity={cartItem.quantity}
+                onIncrease={handleIncrease}
+                onDecrease={handleDecrease}
+                className="h-8 gap-1.5 px-1.5 py-0 text-xs"
+              />
+            ) : (
+              <Button
+                size="sm"
+                onClick={handleAddToCart}
+                className="h-8 px-3 text-xs font-semibold whitespace-nowrap"
+              >
+                Add to Cart
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </Card>

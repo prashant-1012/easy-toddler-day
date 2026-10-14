@@ -26,7 +26,7 @@ const shopProducts = [...products].sort(
 
 export default function ShopPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-10 lg:py-20 xl:px-12">
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       {products.map((product) => (
         <JsonLd
           key={product.id}
@@ -53,7 +53,7 @@ export default function ShopPage() {
         subtitle="Printable and hard-copy learning tools built around one theme a week, so planning toddler activities takes minutes, not hours."
         align="left"
       />
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {shopProducts.map((product, index) => (
           <Reveal key={product.id} delay={(index % 4) * 0.06} className="h-full">
             <ProductCard product={product} priority={index < 4} />

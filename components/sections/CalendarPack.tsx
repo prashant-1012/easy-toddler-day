@@ -91,8 +91,8 @@ export function CalendarPack() {
     <section id="calendar-pack" className="scroll-mt-24 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 xl:px-12">
         <SectionHeading
-          title="Meet the Toddlers Calendar Pack"
-          subtitle="A complete 26-week learning journey. Just print, play, and watch them grow"
+          title="What's your toddler going to explore?"
+          subtitle="26 weeks of structured learning, woven into twelve activity types every week"
         />
 
         <CalendarPackCarousel slides={slides} />
