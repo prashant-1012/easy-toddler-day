@@ -42,7 +42,7 @@ export function buildOrderMessage(
 }
 
 export function buildInquiryMessage(): string {
-  return 'Hi! I found Easy Toddler Day and have a question about your products. 😊'
+  return 'Hi! I found Easy Toddler Day and have a question about your products.'
 }
 
 export function buildComingSoonInterestMessage(productName: string): string {
