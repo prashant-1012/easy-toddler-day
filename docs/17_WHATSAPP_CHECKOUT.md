@@ -2,8 +2,8 @@
 
 ## Confirmed number
 
-`+91 79720 52896` — stored in `lib/constants.ts` as
-`WHATSAPP_NUMBER = "917972052896"` (digits only, country code included,
+`+91 7020234880` — stored in `lib/constants.ts` as
+`WHATSAPP_NUMBER = "917020234880"` (digits only, country code included,
 no `+`/spaces — required format for `wa.me` links).
 
 ## Message format
@@ -96,7 +96,7 @@ window.open(url, '_blank', 'noopener,noreferrer')
 ## Floating WhatsApp button (general inquiries)
 
 - Separate from checkout — a fixed link to
-  `https://wa.me/917972052896?text=<encoded generic greeting>` (e.g.
+  `https://wa.me/917020234880?text=<encoded generic greeting>` (e.g.
   "Hi! I have a question about Easy Toddler Day workbooks."), not tied
   to cart contents.
 

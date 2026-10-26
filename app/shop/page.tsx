@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/shared/JsonLd";
@@ -26,7 +25,7 @@ const shopProducts = [...products].sort(
 
 export default function ShopPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div className="mx-auto max-w-5xl px-4 pt-3 pb-8 sm:px-6 sm:pt-4 sm:pb-10 lg:px-8 lg:pt-4 lg:pb-12">
       {products.map((product) => (
         <JsonLd
           key={product.id}
@@ -48,15 +47,19 @@ export default function ShopPage() {
         />
       ))}
 
-      <SectionHeading
-        title="Calendars & workbooks"
-        subtitle="Printable and hard-copy learning tools built around one theme a week, so planning toddler activities takes minutes, not hours."
-        align="left"
-      />
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+      <div className="mb-4 sm:mb-5">
+        <h1 className="font-display text-xl font-bold tracking-tight text-charcoal sm:text-2xl">
+          Calendars &amp; Workbooks
+        </h1>
+        <p className="mt-1 max-w-2xl text-xs text-warm-gray sm:text-sm">
+          Printable and hard-copy learning tools built around one theme a week, so planning toddler activities takes minutes, not hours.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-3.5">
         {shopProducts.map((product, index) => (
-          <Reveal key={product.id} delay={(index % 4) * 0.06} className="h-full">
-            <ProductCard product={product} priority={index < 4} />
+          <Reveal key={product.id} delay={(index % 4) * 0.05} className="h-full">
+            <ProductCard product={product} priority={index < 4} compact />
           </Reveal>
         ))}
       </div>

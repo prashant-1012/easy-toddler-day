@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Geist, Geist_Mono, Fredoka } from "next/font/google";
 import "./globals.css";
 import {
+  CONTACT_ADDRESS,
   CONTACT_EMAIL,
   CONTACT_PHONE,
   SITE_DESCRIPTION,
@@ -81,6 +82,11 @@ const organizationJsonLd = {
     email: CONTACT_EMAIL,
     telephone: CONTACT_PHONE,
     contactType: "customer service",
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: CONTACT_ADDRESS,
+    addressCountry: "IN",
   },
 };
 

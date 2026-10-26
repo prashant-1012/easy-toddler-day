@@ -1,5 +1,17 @@
 export type ProductCategory = 'calendar' | 'workbook' | 'bundle' | 'free-resource'
 
+export interface ProductDetailBullet {
+  label: string
+  text: string
+}
+
+export interface ProductDetails {
+  title: string
+  intro?: string
+  bullets?: ProductDetailBullet[]
+  notes?: string[]
+}
+
 export interface Product {
   id: string
   slug: string
@@ -29,4 +41,6 @@ export interface Product {
   shippingNote?: string
   /** Direct link to download a digital resource or PDF printable if available. */
   downloadUrl?: string
+  /** Structured rich description details for product page. */
+  details?: ProductDetails
 }

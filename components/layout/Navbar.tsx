@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,13 +28,13 @@ export function Navbar() {
   // destination route to finish rendering, which can take a noticeable
   // moment and made the nav feel stuck. usePathname only updates once
   // navigation commits, so we track intent separately and let the real
-  // pathname reclaim authority as soon as it changes.
   const [pendingHref, setPendingHref] = useState<string | null>(null);
-  const activePathname = pendingHref ?? pathname;
-
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setPendingHref(null);
-  }, [pathname]);
+  }
+  const activePathname = pendingHref ?? pathname;
 
   return (
     <>

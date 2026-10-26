@@ -3,7 +3,6 @@
 import { Check, X } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
-import { Blob } from "@/components/ui/Blob";
 import { brandPillars, comparisonRows } from "@/lib/data/comparison";
 
 export function WhyEasyToddlerDay() {

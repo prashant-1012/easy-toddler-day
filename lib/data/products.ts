@@ -12,7 +12,7 @@ export const products: Product[] = [
     shortDescription:
       '26 weeks hard copy calendar + 12 theme-based worksheets every week + 13-week Week A–M digital workbook.',
     description:
-      'Calendar + Workbook Bundle includes 26 weeks of hard copy calendar with 12 theme-based worksheets every week, plus the 13-week Week A–M digital workbook. Complete screen-free routine in one value bundle.',
+      'The calendar tells you what to explore each week, and the workbook makes it easy to actually sit down and do it. Get both together in one bundle.',
     price: 1199,
     compareAtPrice: 1998,
     shippingNote: 'incl. shipping',
@@ -32,6 +32,33 @@ export const products: Product[] = [
       'Plus 13-week Week A–M digital workbook',
       'Free shipping included',
     ],
+    details: {
+      title: 'About this Product',
+      intro:
+        'The calendar tells you what to explore each week, and the workbook makes it easy to actually sit down and do it. Get both together in one bundle.',
+      bullets: [
+        {
+          label: 'Calendar',
+          text: '26 weeks of guided learning (hard copy) - a large 12x18" wall calendar with sticking hook, for ages 2-4.',
+        },
+        {
+          label: 'Workbook',
+          text: '13 weeks (Week A-M) digital copy - 156 pages with 12 theme-based worksheets every week, for ages 2.5+.',
+        },
+        {
+          label: 'Every Week',
+          text: 'One letter, number, shape, colour, animal and body part, a new action & movement song, 6 no-prep activities, 2 daily chores and one role play.',
+        },
+        {
+          label: 'Hands-on Skills',
+          text: 'Tracing, cutting and fine-motor practice, including cut-out activities.',
+        },
+      ],
+      notes: [
+        '*Returns/refunds are not accepted. Please reach out with any questions!',
+        'This file is for personal use only and should not be shared or sold without permission.',
+      ],
+    },
     ageRange: '2-4 years',
     category: 'bundle',
     tags: ['bundle', 'calendar', 'workbook', 'routine'],
@@ -48,7 +75,7 @@ export const products: Product[] = [
     shortDescription:
       '26 weeks of guided learning with theme activities, chores, movement songs, and wall calendar.',
     description:
-      'Weekly Learning Calendar — Level 1 offers 26 weeks of guided learning. One alphabet, number, shape, colour, animal & body part per week. Includes a new action & movement song weekly, 6 no-prep theme-based activities per week, 2 easy at-home chores + pretend role play, and a large 12×18″ wall calendar with sticking hook.',
+      "HOW WE GO OVER THE WEEKLY LEARNING CALENDAR: Each page focuses on one letter, one number, one shape, one colour, one animal, one body part and one song - plus 6 activities based on these, 2 daily chores and one role play. We focus on one page a week and switch it out every Monday. There's also an empty box at the top of each page to write your child's name.",
     price: 999,
     compareAtPrice: 1299,
     shippingNote: 'incl. shipping',
@@ -67,6 +94,58 @@ export const products: Product[] = [
       '2 easy at-home chores + pretend role play',
       'Large 12×18″ wall calendar with sticking hook',
     ],
+    details: {
+      title: 'About this Calendar',
+      intro:
+        "HOW WE GO OVER THE WEEKLY LEARNING CALENDAR\nEach page focuses on one letter, one number, one shape, one colour, one animal, one body part and one song - plus 6 activities based on these, 2 daily chores and one role play. We focus on one page a week and switch it out every Monday. There's also an empty box at the top of each page to write your child's name.",
+      bullets: [
+        { label: 'Name', text: 'Name recognition and name spelling.' },
+        {
+          label: 'Letter',
+          text: 'Letter recognition, uppercase and lowercase, letter sounds, and things that begin with that letter or make that sound.',
+        },
+        {
+          label: 'Number',
+          text: 'Number recognition, and counting to and from that number.',
+        },
+        {
+          label: 'Shape',
+          text: 'Shape recognition, counting the sides of the shape, and things that are that shape.',
+        },
+        {
+          label: 'Colour',
+          text: 'Colour recognition and things that are that colour.',
+        },
+        {
+          label: 'Animal',
+          text: 'Animal recognition, the sound it makes, and acting out how it moves.',
+        },
+        {
+          label: 'Body Part',
+          text: 'Body part recognition, pointing to it on themselves, and what it helps us do.',
+        },
+        {
+          label: 'Action & Movement Song',
+          text: 'A new song every week - sing along, copy the actions and move together.',
+        },
+        {
+          label: '6 Activities',
+          text: "One no-prep activity each for the week's letter, number, shape, colour, animal and body part, so the concept is practised through play.",
+        },
+        {
+          label: '2 Daily Chores',
+          text: 'Two simple chores shown on every page to build independence at home.',
+        },
+        {
+          label: 'Role Play',
+          text: 'One pretend-play idea a week, like Grocery Shopper, Doctor or Restaurant.',
+        },
+      ],
+      notes: [
+        '*Returns/refunds are not accepted. Please reach out with any questions!',
+        'This file is for personal use only and should not be shared or sold without permission.',
+      ],
+    },
     ageRange: '2-4 years',
     category: 'calendar',
     tags: ['calendar', 'routine', 'planner', 'wall calendar'],
@@ -83,8 +162,8 @@ export const products: Product[] = [
     shortDescription:
       '13 weeks of tracing, cutting, fine-motor practice, and 12 theme-based worksheets every week.',
     description:
-      'Theme Workbook (Week A–M) includes 13 weeks of structured learning for Week A–M with 12 theme-based worksheets every week. Covers tracing, cutting & fine-motor practice, includes cut-out activities, and comes as an instant PDF to print at home anytime.',
-    price: 999,
+      'Our weekly journals will correspond with our printable circle time board. This journal contains hand-drawn, simple and easy/no-prep toddler worksheets for Week A-M (ages 2.5+ years).',
+    price: 199,
     shippingNote: 'Instant PDF Download',
     image: '/products/toddler-workbook-a-m.png',
     gallery: [
@@ -109,6 +188,37 @@ export const products: Product[] = [
       'Includes cut-out activities',
       'Instant PDF — print at home anytime',
     ],
+    details: {
+      title: 'About the Theme Workbook (Week A–M)',
+      intro:
+        'Our weekly journals will correspond with our printable circle time board. This journal contains hand-drawn, simple and easy/no-prep toddler worksheets for Week A-M (ages 2.5+ years).',
+      bullets: [
+        {
+          label: 'Total Pages',
+          text: '156 total pages - 13 weeks (A-M) with 12 theme-based worksheets every week.',
+        },
+        {
+          label: 'Skills',
+          text: 'Tracing, cutting and fine-motor practice, including cut-out activities.',
+        },
+        {
+          label: 'Style',
+          text: 'Hand-drawn, simple and easy/no-prep worksheets.',
+        },
+        {
+          label: 'Supplies',
+          text: 'Most supplies needed are dot stickers, dot markers, crayons/markers, a glue stick and scissors (for adult use).',
+        },
+        {
+          label: 'Format',
+          text: 'Instant PDF download - print at home anytime.',
+        },
+      ],
+      notes: [
+        '*Returns/refunds are not accepted. Please reach out with any questions!',
+        'This file is for personal use only and should not be shared or sold without permission.',
+      ],
+    },
     ageRange: '2.5+ years',
     category: 'workbook',
     tags: ['alphabet', 'tracing', 'fine-motor', 'cut-outs', 'pdf'],
@@ -125,7 +235,7 @@ export const products: Product[] = [
     shortDescription:
       'Free brain-boosting printable to download instantly or hand-draw with your toddler.',
     description:
-      'Free brain-boosting printable for toddlers. Download the PDF instantly, or copy & hand-draw it with your toddler for fun, screen-free learning moments at home.',
+      'A free printable from EasyToddlerDay to get your toddler thinking, focusing and having fun - no purchase needed.',
     price: 0,
     shippingNote: 'Free Instant Download',
     downloadUrl: '/downloads/free-brain-boosting-activity-sheets.pdf',
@@ -140,6 +250,25 @@ export const products: Product[] = [
       'Download the PDF instantly',
       'Or copy & hand-draw it with your toddler',
     ],
+    details: {
+      title: 'About Free Brain-Boosting Activity Sheets',
+      intro:
+        'A free printable from EasyToddlerDay to get your toddler thinking, focusing and having fun - no purchase needed.',
+      bullets: [
+        {
+          label: 'Skills Developed',
+          text: 'Fine-motor control and pencil grip, hand-eye coordination, focus and concentration, and early problem-solving.',
+        },
+        {
+          label: 'Download & Print',
+          text: 'Click the link to download the PDF and print it. For the best result, print it on A3 size paper.',
+        },
+        {
+          label: 'Prefer not to print?',
+          text: 'You can also hand-draw it instead - copy the sheet onto paper and draw it together with your toddler.',
+        },
+      ],
+    },
     ageRange: '2-4 years',
     category: 'free-resource',
     tags: ['free', 'printable', 'activity sheets', 'instant download'],

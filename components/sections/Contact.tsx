@@ -1,7 +1,7 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/sections/ContactForm";
-import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants";
+import { CONTACT_ADDRESS, CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants";
 
 export function Contact() {
   return (
@@ -13,7 +13,7 @@ export function Contact() {
           subtitle="Send us a message and we'll reply over WhatsApp — usually within a day."
         />
 
-        <div className="mt-10 flex flex-col gap-4 text-sm text-warm-gray sm:flex-row sm:items-center sm:justify-center sm:gap-10">
+        <div className="mt-10 flex flex-col gap-4 text-sm text-warm-gray sm:flex-row sm:items-center sm:justify-center sm:gap-8">
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             className="inline-flex items-center gap-2 py-3 transition-colors hover:text-sky-dark"
@@ -22,6 +22,9 @@ export function Contact() {
           </a>
           <span className="inline-flex items-center gap-2 py-3">
             <Phone size={16} aria-hidden="true" /> {CONTACT_PHONE}
+          </span>
+          <span className="inline-flex items-center gap-2 py-3">
+            <MapPin size={16} aria-hidden="true" /> {CONTACT_ADDRESS}
           </span>
         </div>
 

@@ -220,3 +220,32 @@ Implementation notes:
    the homepage section order in
    [03_INFORMATION_ARCHITECTURE.md](./03_INFORMATION_ARCHITECTURE.md) is
    described as deliberate, so it wasn't changed unasked.
+
+## Updates (2026-10-26)
+
+### 1. Business Contact & Address
+- Official contact phone & WhatsApp number confirmed: `+91 7020234880` (`WHATSAPP_NUMBER = '917020234880'`).
+- Official business address confirmed: `Pune, MAH, INDIA`.
+- Displayed across `constants.ts`, Contact section (`components/sections/Contact.tsx`), Contact page (`app/contact/page.tsx`), and JSON-LD schema (`app/layout.tsx`).
+
+### 2. Pricing Updates
+- `Theme Workbook (Week A–M)` (`toddler-workbook-a-m`) price set to `₹199` (digital PDF).
+- `Weekly Learning Calendar — Level 1` (`weekly-learning-calendar`) is `₹999`.
+- `Calendar + Theme Workbook Bundle` (`calendar-workbook-bundle`) is `₹1,199`.
+
+### 3. "What's your toddler going to explore?" (Explore Section)
+- **Grid Layout**: Replaced the horizontal scrolling carousel with a clean responsive grid showing 2 rows of 6 cards each on desktop (`lg:grid-cols-6`), with 2/3/4-col fallbacks on mobile/tablet.
+- **Card proportions**: Compact square artwork container, streamlined padding (`p-2 sm:p-2.5`), balanced font sizing, and uniform title baseline across all cards.
+- **Interactive Detail Modal**: On-click card expansion opening a modal dialog displaying high-resolution artwork, category badge, untruncated description, weekly focus details, close button (X), and Previous/Next navigation controls with keyboard shortcut support (Escape, ArrowLeft, ArrowRight) and background scroll lock.
+
+### 4. Shop & Product Detail Layout
+- **14" Laptop Fit**: Scaled product image and spacing so the entire product gallery, purchase panel, and checkout actions fit comfortably without requiring initial vertical scroll on standard 1366×768 / 1283×643 viewports.
+- **Horizontal Thumbnails**: Relocated sample gallery previews from a vertical left-column rail to a horizontal rail directly beneath the main product image.
+- **Share Button**: Added a dedicated "Share" button adjacent to "Add to Cart" with slow liquid sweep UI on hover and Web Share / clipboard fallback.
+- **Shop Page Cards**: Enabled compact cards on `/shop` displaying all 4 core products within a single viewport on 14" laptops.
+- **Product Details Copy**: Populated exact bulleted highlights, about descriptions, and disclaimers for Bundle, Calendar, Theme Workbook, and Free Activity Sheets.
+
+### 5. About Page Simplification ("Meet the Creator")
+- Completely removed placeholder hero text, the generic frustration origin paragraphs, and the "Play / Learn / Grow" value cards from `/about`.
+- Streamlined `/about` to focus entirely on **"Meet the Creator"** (`components/sections/CreatorStory.tsx`), displaying the photo of the mother and toddler with playful decorative blobs alongside Sneha's narrative story and closing shop CTA.
+
