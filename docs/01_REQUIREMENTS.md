@@ -79,7 +79,7 @@ Preview, Contact, Footer — see
 |---|---|
 | WhatsApp checkout number | `+91 7020234880` (confirmed) |
 | Business phone & address | `+91 7020234880`, `Pune, MAH, INDIA` (confirmed) |
-| Product names/prices | Confirmed: Theme Workbook ₹199, Calendar ₹999, Bundle ₹1,199 |
+| Product names/prices | Confirmed: Theme Workbook ₹199, Calendar ₹999, Bundle ₹1,099 |
 | Brand colors | Approved — [07_COLOR_SYSTEM.md](./07_COLOR_SYSTEM.md) |
 | Headline font | Approved — Fredoka, see [08_TYPOGRAPHY.md](./08_TYPOGRAPHY.md) |
 | Contact form | Approved — opens WhatsApp chat, see [17_WHATSAPP_CHECKOUT.md](./17_WHATSAPP_CHECKOUT.md) |

@@ -50,7 +50,7 @@ Per the project owner, the following are placeholders to be swapped
 before launch:
 
 - **Prices**: Theme Workbook (Week A–M) is priced at `₹199`, Weekly
-  Learning Calendar at `₹999`, Bundle at `₹1,199`, and Free Activity Sheet at `₹0`.
+  Learning Calendar at `₹999`, Bundle at `₹1,099`, and Free Activity Sheet at `₹0`.
 - **Contact phone (voice/WhatsApp) and address**:
   - Number: `+91 7020234880`
   - Address: `Pune, MAH, INDIA`

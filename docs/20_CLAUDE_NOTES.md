@@ -231,7 +231,7 @@ Implementation notes:
 ### 2. Pricing Updates
 - `Theme Workbook (Week A–M)` (`toddler-workbook-a-m`) price set to `₹199` (digital PDF).
 - `Weekly Learning Calendar — Level 1` (`weekly-learning-calendar`) is `₹999`.
-- `Calendar + Theme Workbook Bundle` (`calendar-workbook-bundle`) is `₹1,199`.
+- `Calendar + Theme Workbook Bundle` (`calendar-workbook-bundle`) is `₹1,099`.
 
 ### 3. "What's your toddler going to explore?" (Explore Section)
 - **Grid Layout**: Replaced the horizontal scrolling carousel with a clean responsive grid showing 2 rows of 6 cards each on desktop (`lg:grid-cols-6`), with 2/3/4-col fallbacks on mobile/tablet.

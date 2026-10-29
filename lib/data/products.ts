@@ -13,7 +13,7 @@ export const products: Product[] = [
       '26 weeks hard copy calendar + 12 theme-based worksheets every week + 13-week Week A–M digital workbook.',
     description:
       'The calendar tells you what to explore each week, and the workbook makes it easy to actually sit down and do it. Get both together in one bundle.',
-    price: 1199,
+    price: 1099,
     compareAtPrice: 1998,
     shippingNote: 'incl. shipping',
     image: '/products/bundle-calendar-workbook.png',
